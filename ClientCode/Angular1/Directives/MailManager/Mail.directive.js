@@ -13,6 +13,7 @@ DMApp.directive('mailDirective', ['$localStorage', function($localStorage) {
                         debugger;
                         $scope.message=response.data.messages;
                         $scope.loaded=true;
+                        console.log($scope.message)
                     },
                     function(err) {
 

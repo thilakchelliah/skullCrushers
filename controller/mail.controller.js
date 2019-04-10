@@ -26,8 +26,9 @@ exports.list =  function (req, res, next) {
        client
         .api('/me/mailfolders/inbox/messages')
         .top(10)
-        .select('subject,from,receivedDateTime,isRead')
+        .select('subject,from,receivedDateTime,isRead,body')
         .orderby('receivedDateTime DESC')
+        .header("Prefer","outlook.body-content-type=text")
         .get().then(
           function(result){
             parms.messages = result.value;
