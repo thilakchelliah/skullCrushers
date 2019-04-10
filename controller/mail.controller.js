@@ -73,11 +73,10 @@ exports.listPlain = function (req, res, next) {
     });
 
     try {
-      // Get the 10 newest messages from inbox
       client
         .api('/me/mailfolders/inbox/messages')
         .top(10)
-        .select('subject,from,receivedDateTime,isRead,body')
+        .select('subject,from,receivedDateTime,isRead')
         .orderby('receivedDateTime DESC')
         .get().then(
           function (result) {
@@ -114,9 +113,9 @@ var toneAnalyzer = new ToneAnalyzerV3({
   // If unspecified here, the TONE_ANALYZER_USERNAME and TONE_ANALYZER_PASSWORD environment properties will be checked
   // or TONE_ANALYZER_IAM_APIKEY if is available
   // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
-  iam_apikey:'yYjSArjCNnWa_U3O2QDG58jscEbYryOGwqo5TpZBqtO_',
+  iam_apikey: 'yYjSArjCNnWa_U3O2QDG58jscEbYryOGwqo5TpZBqtO_',
   version: '2017-09-21',
-  url: 'https://gateway.watsonplatform.net/tone-analyzer/api'  
+  url: 'https://gateway.watsonplatform.net/tone-analyzer/api'
 });
 
 
