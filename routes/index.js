@@ -17,7 +17,7 @@ var router = express.Router();
 var authHelper = require('../helpers/auth');
 
 /* GET home page. */
-<<<<<<< HEAD
+
 router.get('/', async function(req, res, next) {
   let parms = { title: 'Home', active: { home: true } };
 
@@ -34,12 +34,6 @@ router.get('/', async function(req, res, next) {
 
   res.render('index', parms);
 });
-=======
-router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Daily Manager', dev: 'true' });
-});
 
-
->>>>>>> 6744b6e29b191a7980cbc54c51e2687534255784
 
 module.exports = router;
