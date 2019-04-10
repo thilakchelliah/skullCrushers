@@ -9,7 +9,7 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
             $scope.indMessaArray = [];
             var init = function () {
                 debugger;
-                DMService.GetMailList().then(
+                DMService.GetMailListPlain().then(
                     function (response) {
                         debugger;
                         $scope.message=response.data.messages;
@@ -17,22 +17,22 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                         $scope.mailcontent = $scope.message[0].body.content;
                         console.log($scope.message)
 
-                        $.each($scope.message, function (key, value) {
-                                let toneParams = {
-                                    tone_input: value.body.content,
-                                    content_type: 'text/plain'
-                                };
-                            DMService.ToneAnalyse(toneParams).then(
-                                function (tonResp) {                                    
-                                    $scope.indMessaArray.push({ emailId: value.id, result: tonResp });
+                        // $.each($scope.message, function (key, value) {
+                        //         let toneParams = {
+                        //             tone_input: value.body.content,
+                        //             content_type: 'text/plain'
+                        //         };
+                        //     DMService.ToneAnalyse(toneParams).then(
+                        //         function (tonResp) {                                    
+                        //             $scope.indMessaArray.push({ emailId: value.id, result: tonResp });
                                     
-                                    console.log(tonResp)
-                                },
-                                function (err) {
+                        //             console.log(tonResp)
+                        //         },
+                        //         function (err) {
 
-                                });
-                        });
-                        console.log($scope.indMessaArray)
+                        //         });
+                        // });
+                        // console.log($scope.indMessaArray)
 
 
                     },
