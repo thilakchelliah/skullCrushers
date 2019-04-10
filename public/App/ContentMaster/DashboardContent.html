@@ -1,0 +1,124 @@
+<div class="wrapper">
+    <div class="sidebar" data-background-color="white" data-active-color="danger">
+
+   
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a  class="simple-text">
+                    Dashboard
+                </a>
+            </div>
+
+            <ul class="dashboardNav nav">
+                <li>
+                    <a ui-sref="home.admin">
+                       <i class="fa fa-sliders" aria-hidden="true"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="home.userController">
+                       <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <p>User Controller</p>
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="home.BlogManager">
+                        <i class="fa fa-rss-square" aria-hidden="true"></i>
+                        <p>Blog Manager</p>
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="home.TutorialManager">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        <p>Tutorial Controller</p>
+                    </a>
+                </li>
+               
+                <li>
+                    <a ui-sref="home.trackers">
+                        <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                        <p>Trackers</p>
+                    </a>
+                </li>
+				<li class="home.notification">
+                    <a href="http://demos.creative-tim.com/paper-dashboard/upgrade.html">
+                       <i class="fa fa-commenting" aria-hidden="true"></i>
+                        <p>Notification</p>
+                    </a>
+                </li>
+                	<li class="active-pro">
+                    <a id="logoutBtn" href="#">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <p>Logout</p>
+                    </a>
+                </li>
+                
+            </ul>
+    	</div>.
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="javascript:;">{{dashBoardTitle}}</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="http://demos.creative-tim.com/paper-dashboard/dashboard.html#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="ti-panel"></i>
+								<p>Stats</p>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                              <a href="http://demos.creative-tim.com/paper-dashboard/dashboard.html#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="ti-bell"></i>
+                                    <p class="notification">5</p>
+									<p>Notifications</p>
+									<b class="caret"></b>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="http://demos.creative-tim.com/paper-dashboard/dashboard.html#">Notification 1</a></li>
+                                <li><a href="http://demos.creative-tim.com/paper-dashboard/dashboard.html#">Notification 2</a></li>
+                                <li><a href="http://demos.creative-tim.com/paper-dashboard/dashboard.html#">Notification 3</a></li>
+                                <li><a href="http://demos.creative-tim.com/paper-dashboard/dashboard.html#">Notification 4</a></li>
+                                <li><a href="http://demos.creative-tim.com/paper-dashboard/dashboard.html#">Another notification</a></li>
+                              </ul>
+                        </li>
+						<li>
+                            <a href="http://demos.creative-tim.com/paper-dashboard/dashboard.html#">
+								<i class="ti-settings"></i>
+								<p>Settings</p>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class="container-fluid">
+                 <ui-view>
+                </ui-view>
+
+            </div>
+        </div>
+
+
+       
+
+    </div>
+</div>
+
+
+<script>
+    $("#logoutBtn").click(function() {
+        window.localStorage.clear();
+        window.location.assign("/")
+    });
+</script>

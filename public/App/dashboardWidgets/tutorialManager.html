@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" data-target="#tutorialData" role="tab">Tutorial Data </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" data-target="#tutorialManager" role="tab">Tutorial Manager</a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div class="card-block tab-pane fade show active" id="tutorialData">
+            <h4 class="card-title">New Tutorial Data</h4>
+
+            <tutorial-manager-directive></tutorial-manager-directive>
+
+        </div>
+        <div class="card-block tab-pane fade" id="tutorialManager">
+            <h4 class="card-title">Blog Manager</h4>
+            <div class="table-responsive">
+                <grid-directive id="tutorialGridWrapDir" gd-id="tutorialGrid" grid-data="'/apiS/Tutorial/FetchAll'" gd-type="'URL'" coloumn-data="tutorialGrid" ver="1">
+                    
+                </grid-directive>
+            </div>
+        </div>
+    </div>
+</div>
+

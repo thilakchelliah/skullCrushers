@@ -1,0 +1,25 @@
+<div ng-controller="blogListController">
+  <div class="card" ng-repeat="blogObj in blogList">
+    <img class="card-img-top" src="..." alt="Card image cap" ng-if="blogObj.blogImgTrue">
+    <div class="card-block">
+      <div class="card-title"><span class="blogTitleSpan">{{blogObj.title}}</span>
+      </div>
+      <ul class="list-inline list-unstyled blogRelat">
+        <li class="list-inline-item"><span><i class="fa fa-user" aria-hidden="true"></i> {{blogObj.user}} </span></li>
+        <li class="list-inline-item">|</li>
+        <li class="list-inline-item"><span><i class="fa fa-calendar" aria-hidden="true"></i>{{blogObj.date | date:'MMM d, y h:mm:ss a' }}</span></li>
+        <li class="list-inline-item">|</li>
+        <li class="list-inline-item"><span><i class="fa fa-comment" aria-hidden="true"></i> 2 comments</span></li>
+
+      </ul>
+      <p class="card-text" ng-bind-html="blogObj.previewText"></p>
+      <span  class="btn btn-primary pull-right" ng-click="openBlogPost(blogObj.urlId)">Read More</span>
+
+    </div>
+    <div class="card-footer text-muted">
+      <ul class="tags" >
+        <li><a href="#" ng-repeat="tag in blogObj.tagData" class="tag">{{tag}}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

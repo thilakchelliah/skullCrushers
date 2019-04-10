@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<base href="/">
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <% include ../views/partials/headerTags %>
+</head>
+
+<body ng-app="trApp.Main">
+  <% include ../views/partials/header %>
+    <% include ../views/partials/content %>
+      <% include ../views/partials/footer %>
+        <div class="loading">Loading&#8230;</div>
+
+
+</body>
+<script id="dsq-count-scr" src="//techregistry.disqus.com/count.js" async></script>
+
+</html>
