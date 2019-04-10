@@ -23,16 +23,23 @@ exports.list =  function (req, res, next) {
 
     try {
       // Get the 10 newest messages from inbox
-      const result = client
+       client
         .api('/me/mailfolders/inbox/messages')
         .top(10)
         .select('subject,from,receivedDateTime,isRead')
         .orderby('receivedDateTime DESC')
-        .get();
+        .get().then(
+          function(result){
+            parms.messages = result.value;
+            console.log(parms.message);
+            res.render('mail', parms);
+          },
+          function(err){
+            res.render('error', err);
+          }
+        );
 
-      parms.messages = result.value;
-      console.log(parms.message);
-      res.render('mail', parms);
+     
     } catch (err) {
       parms.message = 'Error retrieving messages';
       parms.error = { status: `${err.code}: ${err.message}` };

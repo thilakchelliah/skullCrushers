@@ -81,7 +81,7 @@ app.use('/js', express.static(__dirname + '/node_modules/ngstorage'));
 app.use('/js', express.static(__dirname + '/node_modules/angular'));
 app.use('/js', express.static(__dirname + '/node_modules/@uirouter/angularjs/release'));
 app.use('/js', express.static(__dirname + '/node_modules/angular-jwt/dist'));
-app.use('/summernote', express.static(__dirname + '/node_modules/summernote/dist'));
+app.use('/chartjs', express.static(__dirname + '/node_modules/chart.js/dist'));
 
 
 // catch 404 and forward to error handler
