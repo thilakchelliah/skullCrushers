@@ -41,9 +41,12 @@ mongoose.connect("mongodb://thilaktest:test123@ds143070.mlab.com:43070/tech_regi
 
 require('dotenv').config();
 var index = require('./routes/index');
+<<<<<<< HEAD
 var authorize = require('./routes/authorize');
 var apiRouteOpen = require('./routes/apiRoutesOpen');
 var apiRouteSecured = require('./routes/apiRoutesSecured');
+=======
+>>>>>>> 6744b6e29b191a7980cbc54c51e2687534255784
 var middleWare = require('./middleware/JSWMiddleware');
 
 var app = express();
@@ -61,12 +64,16 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'ClientServer')));
+app.use(express.static(path.join(__dirname, 'ClientCode')));
 
 app.use('/', index);
+<<<<<<< HEAD
 app.use('/authorize', authorize);
 app.use('/api', apiRouteOpen);
 app.use('/apiS', middleWare, apiRouteSecured);
+=======
+//app.use('/api', apiRouteOpen);
+>>>>>>> 6744b6e29b191a7980cbc54c51e2687534255784
 
 app.use('/bootbox', express.static(__dirname + '/node_modules/bootbox'));
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
