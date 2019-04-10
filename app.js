@@ -41,8 +41,6 @@ mongoose.connect("mongodb://thilaktest:test123@ds143070.mlab.com:43070/tech_regi
 
 
 var index = require('./routes/index');
-var apiRouteOpen = require('./routes/apiRoutesOpen');
-var apiRouteSecured = require('./routes/apiRoutesSecured');
 var middleWare = require('./middleware/JSWMiddleware');
 
 var app = express();
@@ -60,11 +58,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'ClientServer')));
+app.use(express.static(path.join(__dirname, 'ClientCode')));
 
 app.use('/', index);
-app.use('/api', apiRouteOpen);
-app.use('/apiS', middleWare, apiRouteSecured);
+//app.use('/api', apiRouteOpen);
 
 app.use('/bootbox', express.static(__dirname + '/node_modules/bootbox'));
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
