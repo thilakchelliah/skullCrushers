@@ -47,7 +47,7 @@ var authorize = require('./routes/authorize');
 var apiRouteOpen = require('./routes/openRoute');
 // var apiRouteSecured = require('./routes/apiRoutesSecured');
 
-var middleWare = require('./middleware/JSWMiddleware');
+
 
 var app = express();
 
