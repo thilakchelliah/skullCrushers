@@ -19,9 +19,9 @@ DMApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function(
             url: '/main',
             templateUrl: 'App/ContentMaster/Content.html'
         })
-        .state('Tutorial', {
-            url: '/tutorial',
-            template: '<tutorial-list-directive></tutorial-list-directive>'
+        .state('Mail', {
+            url: '/Mail',
+            template: '<mail-Directive></mail-directive>'
         })
         .state('BlogPost', {
             url: '/BlogPost/:urlId',

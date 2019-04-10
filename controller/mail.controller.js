@@ -32,10 +32,10 @@ exports.list =  function (req, res, next) {
           function(result){
             parms.messages = result.value;
             console.log(parms.message);
-            res.render('mail', parms);
+            res.json(parms);
           },
           function(err){
-            res.render('error', err);
+            res.status(500).send(err);
           }
         );
 
@@ -44,7 +44,7 @@ exports.list =  function (req, res, next) {
       parms.message = 'Error retrieving messages';
       parms.error = { status: `${err.code}: ${err.message}` };
       parms.debug = JSON.stringify(err.body, null, 2);
-      res.render('error', parms);
+      res.status(500).send(parms)
     }
 
   } else {
