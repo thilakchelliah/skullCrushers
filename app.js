@@ -43,8 +43,8 @@ require('dotenv').config();
 var index = require('./routes/index');
 
 var authorize = require('./routes/authorize');
-var apiRouteOpen = require('./routes/apiRoutesOpen');
-var apiRouteSecured = require('./routes/apiRoutesSecured');
+// var apiRouteOpen = require('./routes/apiRoutesOpen');
+// var apiRouteSecured = require('./routes/apiRoutesSecured');
 
 var middleWare = require('./middleware/JSWMiddleware');
 
@@ -67,8 +67,8 @@ app.use(express.static(path.join(__dirname, 'ClientCode')));
 
 app.use('/', index);
 app.use('/authorize', authorize);
-app.use('/api', apiRouteOpen);
-app.use('/apiS', middleWare, apiRouteSecured);
+// app.use('/api', apiRouteOpen);
+// app.use('/apiS', middleWare, apiRouteSecured);
 
 app.use('/bootbox', express.static(__dirname + '/node_modules/bootbox'));
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
