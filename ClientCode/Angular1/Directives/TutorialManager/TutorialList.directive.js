@@ -1,13 +1,13 @@
 
-/*global techRegistryApp,$,bootbox,angular*/
-techRegistryApp.directive('tutorialListDirective', ['$localStorage', function($localStorage) {
+DMApp.directive('tutorialListDirective', ['$localStorage', function($localStorage) {
     return {
         restrict: 'E',
         templateUrl: 'Angular1/Directives/TutorialManager/TutorialList.html',
-        controller: ['$scope', '$http', 'sharedService', '$stateParams', '$sce', function($scope, $http, sharedService, $stateParams, $sce) {
+        controller: ['$scope', '$http', 'DMService', '$stateParams', '$sce', function($scope, $http,DMService, sharedService, $stateParams, $sce) {
             $scope.tutObjList = [];
             var init = function() {
-                sharedService.FetchAllTutorial().then(
+                debugger;
+                DMService.GetMailList().then(
                     function(response) {
                         debugger;
                         $(response.data).each(function() {

@@ -5,10 +5,10 @@ var authHelper = require('../helpers/auth');
 var graph = require('@microsoft/microsoft-graph-client');
 
 /* GET /mail */
-exports.list = function(req, res, next) {
+exports.list =  function (req, res, next) {
   let parms = { title: 'Inbox', active: { inbox: true } };
 
-  const accessToken = await authHelper.getAccessToken(req.cookies, res);
+  const accessToken = authHelper.getAccessToken(req.cookies, res);
   const userName = req.cookies.graph_user_name;
 
   if (accessToken && userName) {
@@ -24,11 +24,11 @@ exports.list = function(req, res, next) {
     try {
       // Get the 10 newest messages from inbox
       const result = await client
-      .api('/me/mailfolders/inbox/messages')
-      .top(10)
-      .select('subject,from,receivedDateTime,isRead')
-      .orderby('receivedDateTime DESC')
-      .get();
+        .api('/me/mailfolders/inbox/messages')
+        .top(10)
+        .select('subject,from,receivedDateTime,isRead')
+        .orderby('receivedDateTime DESC')
+        .get();
 
       parms.messages = result.value;
       console.log(parms.message);
@@ -39,10 +39,11 @@ exports.list = function(req, res, next) {
       parms.debug = JSON.stringify(err.body, null, 2);
       res.render('error', parms);
     }
-    
+
   } else {
     // Redirect to home
     res.redirect('/');
   }
+}
 
 
