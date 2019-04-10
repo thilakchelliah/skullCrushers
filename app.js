@@ -11,7 +11,7 @@ var mkdirp = require('mkdirp');
 global.config = require('./config');
 var jwt = require('jsonwebtoken');
 var localIp = process.env.IP != undefined ? process.env.IP : "localhost";
-var localport = process.env.PORT != undefined ? process.env.PORT : 4500;
+var localport = process.env.PORT != undefined ? process.env.PORT : 3000;
 console.log(localIp);
 console.log(localport);
 
@@ -39,8 +39,9 @@ mongoose.connect("mongodb://thilaktest:test123@ds143070.mlab.com:43070/tech_regi
   }
 });
 
-
+require('dotenv').config();
 var index = require('./routes/index');
+var authorize = require('./routes/authorize');
 var apiRouteOpen = require('./routes/apiRoutesOpen');
 var apiRouteSecured = require('./routes/apiRoutesSecured');
 var middleWare = require('./middleware/JSWMiddleware');
@@ -63,6 +64,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'ClientServer')));
 
 app.use('/', index);
+app.use('/authorize', authorize);
 app.use('/api', apiRouteOpen);
 app.use('/apiS', middleWare, apiRouteSecured);
 
