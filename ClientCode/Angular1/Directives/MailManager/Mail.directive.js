@@ -13,12 +13,20 @@ DMApp.directive('mailDirective', ['$localStorage', function($localStorage) {
                         debugger;
                         $scope.message=response.data.messages;
                         $scope.loaded=true;
+                        $scope.mailcontent = $scope.message[0].body.content;
                         console.log($scope.message)
                     },
                     function(err) {
 
                     });
             }
+            $scope.body_click = function(a){
+                $scope.$broadcast('BOOM!', a)
+            }
+            $scope.$on('BOOM!', function(events, args){
+                console.log(args);
+                $scope.mailcontent = args; //now we've registered!
+              })
             init();
             $scope.openTutorial=function (id) {
                 debugger;

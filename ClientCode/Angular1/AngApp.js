@@ -32,14 +32,13 @@ DMApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function(
                 }
             ]
         })
-        .state('TutorialPost', {
-            url: '/BlogPost/:urlId',
-            templateUrl: 'App/ContentMaster/BlogPostContent.html',
-            controller: ['$rootScope', '$stateParams',
-                function($scope, $statesParams) {
-                    $scope.urlId = $statesParams.urlId;
-                }
-            ]
+        .state('TechNews', {
+            url: '/TechNews',
+            templateUrl: 'Angular1/Directives/tech_news.html'
+        })
+        .state('FinancialNews', {
+            url: '/FinNews',
+            templateUrl: 'Angular1/Directives/fin_news.html'
         });
 
 }]);

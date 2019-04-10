@@ -1,16 +1,67 @@
-<h2>Inbox</h2>
-<table class="table" ng-if="loaded">
-    <thead class="thead-light">
-        <th scope="col">From</th>
-        <th scope="col">Subject</th>
-        <th scope="col">Received</th>
-    </thead>
-    <tbody>
-        <tr ng-repeat="obj in message" >
-            <td title="{{obj.from.emailAddress.address}}">{{obj.from.emailAddress.name}}</td>
-            <td>{{obj.subject}}</td>
-            <td>{{obj.receivedDateTime}}</td>
-        </tr>
-      
-    </tbody>
-</table>
+<style>
+.emonji{
+    width: 100px;
+    height: 80px;
+    padding: 0px;
+    margin: 0px;
+    float:left;
+    text-align:center;
+}
+.info{
+    position: relative;
+    height: 80px;
+    text-align: left;
+    padding: 10px 0px 10px 10px;
+}
+</style>
+<div class="row">
+    <div class="col-6 col-md-4" style="padding:0px">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-warning">Inbox</li>
+            <li class="list-group-item" ng-repeat="obj in message" style="padding:0px" ng-click="body_click(obj.body.content)">
+                <div class="emonji">
+                    <img style="height:100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb-iRWIwPsCo9-ZSm_RxGJ4esPPycgOx9yQ4tFy6He-7JewgTM5g"/>
+                </div>
+                <div class="info">
+                <div>
+                    <span style="font-weight: 600;font-size: 14px">{{obj.from.emailAddress.name}}</span>
+                </div>
+                <div>
+                    <span style="font-weight: 400;font-size: 14px">{{obj.subject}}</span>
+                </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="col-12 col-md-8" style="padding:0px">
+        <p>
+            {{mailcontent}}
+        </p>
+    </div>
+</div>
+
+<!-- <div class="row">
+    <div class="col-md-12">
+        <div class="col-md-4">
+            <p>asdfasdashfhsaf lashhflksad lahfj jahsfjkhasdjf kjhasddf a kjsdfjkadsh</p>
+        </div>
+        <div class="col-md-8">
+        <h2>Inbox</h2>
+        <table class="table" ng-if="loaded">
+            <thead class="thead-light">
+                <th scope="col">From</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Received</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="obj in message">
+                    <td title="{{obj.from.emailAddress.address}}">{{obj.from.emailAddress.name}}</td>
+                    <td>{{obj.subject}}</td>
+                    <td>{{obj.receivedDateTime}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div> -->
