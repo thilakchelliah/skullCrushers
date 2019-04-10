@@ -33,6 +33,7 @@
     "popper.js": "^1.12.5",
     "serve-favicon": "~2.3.0",
     "simple-oauth2": "^2.2.1",
-    "summernote": "^0.8.9"
+    "summernote": "^0.8.9",
+    "watson-developer-cloud": "^4.0.1"
   }
 }

@@ -10,18 +10,18 @@ var tRDashboardApp = angular.module("trApp.Dashboard", ['ui.router', 'ngStorage'
 DMApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider,
     $httpProvider) {
 
-    $urlRouterProvider.otherwise('/main');
+    $urlRouterProvider.otherwise('/dashboard');
 
     $stateProvider
 
         // HOME STATES AND NESTED VIEWS ========================================
-        .state('main', {
-            url: '/main',
-            templateUrl: 'App/ContentMaster/Content.html'
+        .state('dashboard', {
+            url: '/dashboard',
+            template: '<dash-directive></dash-directive>'
         })
         .state('Mail', {
             url: '/Mail',
-            template: '<mail-Directive></mail-directive>'
+            template: '<mail-directive></mail-directive>'
         })
         .state('BlogPost', {
             url: '/BlogPost/:urlId',
