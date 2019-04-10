@@ -27,12 +27,14 @@ router.get('/', async function(req, res, next) {
   if (accessToken && userName) {
     parms.user = userName;
     parms.debug = `User: ${userName}\nAccess Token: ${accessToken}`;
+    res.render('index', parms);
   } else {
     parms.signInUrl = authHelper.getAuthUrl();
     parms.debug = parms.signInUrl;
+    res.render('SignIn', parms);
   }
 
-  res.render('index', parms);
+ 
 });
 
 

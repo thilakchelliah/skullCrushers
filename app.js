@@ -7,7 +7,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var multer  = require('multer');
 var mkdirp = require('mkdirp');
-
+require('dotenv').config();
+var temp=require('dotenv').config();
 global.config = require('./config');
 var jwt = require('jsonwebtoken');
 var localIp = process.env.IP != undefined ? process.env.IP : "localhost";
@@ -39,7 +40,7 @@ mongoose.connect("mongodb://thilaktest:test123@ds143070.mlab.com:43070/tech_regi
   }
 });
 
-require('dotenv').config();
+
 var index = require('./routes/index');
 
 var authorize = require('./routes/authorize');

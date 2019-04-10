@@ -1,3 +1,9 @@
+
+process.env.APP_ID="18fb72a1-de95-4fa9-80ed-9ded47f4313b"
+process.env.APP_PASSWORD="s0w$6*&(?=?!={]#]>[m=>/b7/[[1)^&@#X/|%xG!R!jY{lL0"
+process.env.APP_SCOPES="openid profile offline_access User.Read Mail.Read Calendars.Read Contacts.Read"
+process.env.REDIRECT_URI="http://localhost:3000/authorize"
+
 // Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE.txt in the project root for license information.
 const credentials = {
   client: {
