@@ -23,7 +23,7 @@ exports.list =  function (req, res, next) {
 
     try {
       // Get the 10 newest messages from inbox
-      const result = await client
+      const result = client
         .api('/me/mailfolders/inbox/messages')
         .top(10)
         .select('subject,from,receivedDateTime,isRead')
