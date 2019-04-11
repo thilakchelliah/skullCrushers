@@ -5,15 +5,18 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
         templateUrl: 'Angular1/Directives/MailManager/Mail.html',
         controller: ['$scope', '$http', 'DMService', '$stateParams', '$sce', function ($scope, $http, DMService, $stateParams, $sce) {
             $scope.loaded = false;
-            $scope.message = [];
+
             $scope.indMessaArray = [];
             var init = function () {
+                $scope.message = [];
+                $scope.emarray = [];
+                $scope.frm = {};
                 $scope.create = false;
                 DMService.GetMailList().then(
                     function (response) {
                         // debugger;
                         $scope.message = response.data.messages;
-                        $scope.frm = {};
+
                         $scope.frm.msg = "";
                         $scope.frm.sub = "";
                         $scope.frm.to = "";
@@ -63,11 +66,33 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
             $scope.discard = function () {
                 $scope.create = false;
             }
+            $scope.check_stat = function () {
+                console.log($scope.emarray);
+                if ($scope.emarray.indexOf("Anger") != -1) {
+                    $scope.mal_stat = "alert-danger"
+                } else if ($scope.emarray.indexOf("Sadness") != -1 || $scope.emarray.indexOf("Tentative") != -1) {
+                    $scope.mal_stat = "alert-warning"
+                } else if ($scope.emarray.indexOf("Joy") != -1 || $scope.emarray.indexOf("Confident") != -1) {
+                    $scope.mal_stat = "alert-success"
+                } else {
+                    $scope.mal_stat = "alert-info"
+                }
+            }
+            $scope.sen = function (a) {
+                if ($scope.emarray.length > 0) {
+                    // $scope.emarray = [];
+                    init();
+                    alert("Mail Sent Successfully")
+                } else {
+                    $scope.send(a);
+                }
+            }
             $scope.send = function (a) {
                 if (a.msg == "" || a.sub == "" || a.to == "") {
                     alert("Please fill the mandatory fields")
                 }
                 else {
+                    $scope.emarray = [];
                     let toneParams1 = {
                         tone_input: a,
                         content_type: 'text/plain'
@@ -76,10 +101,16 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                         function (tonResp) {
                             console.log(tonResp)
                             $scope.contentEmotions = tonResp.data.document_tone.tones;
-                            $scope.emarray = [];
                             $.each($scope.contentEmotions, function (key, value) {
-                                $scope.emarray.push(value.tone_name)
+                                if (value.tone_name === "fear") {
+                                    $scope.emarray.indexOf("Sadness") === -1 ? $scope.emarray.push("Sadness") : console.log("Sadness already exists");
+                                } else if (value.tone_name === "Joy" || value.tone_name === "Analytical") {
+                                    $scope.emarray.indexOf("Good") === -1 ? $scope.emarray.push("Good") : console.log("Good already exists");
+                                } else {
+                                    $scope.emarray.indexOf(value.tone_name) === -1 ? $scope.emarray.push(value.tone_name) : console.log(value.tone_name + " already exists");
+                                }
                             });
+                            $scope.check_stat();
                         },
                         function (err) {
 

@@ -44,6 +44,12 @@
         font-size: 22px;
         font-weight: 600;
     }
+
+    .btl{
+        float:left;
+        margin-right: 10px;
+    }
+
 </style>
 <div class="row">
     <div class="col-6 col-md-4" style="padding:0px">
@@ -101,7 +107,10 @@
         <div class="col-md-12 headmail">
             Compose Mail
             <button type="button" class="btn btn-danger" style="float:right" ng-click="discard()">Discard</button>
-            <button type="button" class="btn btn-success" style="float:right;margin-right:5px"ng-click="send(frm)">Send</button>
+            <button type="button" class="btn btn-primary" style="float:right;margin-right:5px" ng-if="emarray.length > 0"
+                    ng-click="send(frm)">Recheck</button>
+            <button type="button" class="btn btn-success" style="float:right;margin-right:5px"
+                ng-click="sen(frm)">Send</button>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -131,16 +140,24 @@
             <input type="text" class="form-control" placeholder="Please enter subject of mail" aria-label="Subject"
                 aria-describedby="basic-addon1" ng-model="frm.sub">
         </div>
-        <div class="alert alert-primary" role="alert" ng-if="contentEmotions.length > 0">
-                <div ng-repeat="emo in contentEmotions">
-                        {{emo.tone_name}}
-                    </div>
-              </div>
+        <div class="col-md-12" ng-if="emarray.length > 0">
+            <div class="alert col-md-12" ng-class="mal_stat" role="alert" style="float:left">
+                <div ng-repeat="emo in emarray" style="float:left">
+                    <button type="button" ng-if="emo === 'Anger'" class="btn btn-danger btn-sm btl">{{emo}}</button>
+                    <button type="button" ng-if="emo === 'Sadness' || emo === 'Tentative'" class="btn btn-warning btn-sm btl">{{emo}}</button>
+                    <button type="button" ng-if="emo === 'Good'" class="btn btn-success btn-sm btl">{{emo}}</button>
+                    <button type="button" ng-if="emo === 'Analytical'" class="btn btn-info btn-sm btl">{{emo}}</button>
+                </div>
+                <div>To proceed with this tone please click Send button again</div>
+            </div>
+            
+
+        </div>
         <div class="form-group">
             <label for="message">Message:</label>
             <textarea class="form-control" rows="5" id="message" ng-model="frm.msg"></textarea>
         </div>
-        
+
     </div>
 
     <!-- <div class="form-group">
