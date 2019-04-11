@@ -73,7 +73,7 @@ DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
                 var assValLenght = 0;
                 $.each($scope.message, function (k, val) {
                     var temp = $.grep(val.toRecipients, function (v) {
-                        return v.emailAddress.address === "SkullKrushers07@outlook.com";
+                        return v.emailAddress.address === "skullkrushers07@outlook.com";
                     }).length
                     assValLenght = assValLenght + temp;
                 });
@@ -104,23 +104,23 @@ DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
             }
 
             $scope.pieChartGenerator = function () {
-                var AngerCnt = 0, FearCnt = 0, JoyCnt = 0, SadnessCnt = 0, AnalyticalCnt = 0, ConfidentCnt = 0, TentativeCnt = 0, otherCnt = 0;
+                var AngerCnt = 0, FearCnt = 0, GoodCnt=0,JoyCnt = 0, SadnessCnt = 0, AnalyticalCnt = 0, ConfidentCnt = 0, TentativeCnt = 0, otherCnt = 0;
 
                 $.each($scope.indMessaArray, function (k, val123) {
                     val = val123.result;
                     AngerCnt = AngerCnt + $.grep(val.document_tone.tones, function (v) {
                         return v.tone_name === "Anger";
                     }).length
-                    FearCnt = FearCnt + $.grep(val.document_tone.tones, function (v) {
+                    SadnessCnt = SadnessCnt + $.grep(val.document_tone.tones, function (v) {
                         return v.tone_name === "Fear";
                     }).length
-                    JoyCnt = JoyCnt + $.grep(val.document_tone.tones, function (v) {
+                    GoodCnt = GoodCnt + $.grep(val.document_tone.tones, function (v) {
                         return v.tone_name === "Joy";
                     }).length
                     SadnessCnt = SadnessCnt + $.grep(val.document_tone.tones, function (v) {
                         return v.tone_name === "Sadness";
                     }).length
-                    AnalyticalCnt = AnalyticalCnt + $.grep(val.document_tone.tones, function (v) {
+                    GoodCnt = GoodCnt + $.grep(val.document_tone.tones, function (v) {
                         return v.tone_name === "Analytical";
                     }).length
                     ConfidentCnt = ConfidentCnt + $.grep(val.document_tone.tones, function (v) {
@@ -137,19 +137,17 @@ DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
                 new Chart(document.getElementById("chartjs-4"), {
                     "type": "doughnut",
                     "data": {
-                        "labels": ["Anger", "Fear", "Joy", "Sadness", "Analytical", "Confident", "Tentative", "other"],
+                        "labels": ["Anger", "Good", "Sadness", "Confident", "Tentative", "others"],
                         "datasets": [{
                             "label": "Tone Analyser",
-                            "data": [AngerCnt, FearCnt, JoyCnt, SadnessCnt, AnalyticalCnt, ConfidentCnt, TentativeCnt, otherCnt],
+                            "data": [AngerCnt, GoodCnt, SadnessCnt, ConfidentCnt, TentativeCnt, otherCnt],
                             "backgroundColor": [
-                                "#FF0000",
-                                "#FF6600",
-                                "#33FF00",
-                                "#000000",
-                                "#00FFFF",
-                                "#0033FF",
-                                "#9933FF",
-                                "#D3D3D3"
+                                "#dc3545",
+                                "#28a745",
+                                "#6c757d",
+                                "#0069d9",
+                                "#ffc107",
+                                "#138496"                               
                             ],
                         }]
                     },

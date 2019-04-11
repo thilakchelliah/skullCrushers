@@ -130,9 +130,9 @@ exports.toneAnalyse = function (req, res, next) {
       return next(err);
     }
     if (req.body.tone_input.toLowerCase().includes("escalation")) {
-      data.document_tone.tones.push({
+      data.document_tone.tones = [{
         tone_name: "Anger"
-      })
+      }]
     }
     return res.json(data);
   });

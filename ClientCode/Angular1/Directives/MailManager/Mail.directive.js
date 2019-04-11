@@ -59,7 +59,6 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                         console.log("Anand")
                         // console.log($scope.message)
                         $scope.emrel = $scope.message[0].result;
-                        alert($scope.emrel)
                     },
                     function (err) {
 
