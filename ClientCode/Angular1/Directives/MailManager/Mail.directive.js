@@ -72,7 +72,7 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                     Name: $scope.Name,
                     Description: $scope.Description,
                     AllottedTime: $scope.AllottedTime,
-                    Status:"Pending"
+                    Status:$scope.Status
                 }
                 
                 DMService.AddTask(taskObj).then(

@@ -27,7 +27,7 @@ DMApp.directive('taskDirective', ['$localStorage', function ($localStorage) {
                     Name: $scope.Name,
                     Description: $scope.Description,
                     AllottedTime: $scope.AllottedTime,
-                    Status:"Pending"
+                    Status:$scope.Status
                 }
                 
                 DMService.AddTask(taskObj).then(
@@ -38,6 +38,12 @@ DMApp.directive('taskDirective', ['$localStorage', function ($localStorage) {
                     function () {
                         $('#exampleModalLong').modal('hide')
                     });
+            }
+            $scope.update = function(task){
+                $scope.Name = task.Name;
+                $scope.Description = task.Description;
+                $scope.AllottedTime = task.AllottedTime;
+                $scope.Status = task.Status;
             }
 
 

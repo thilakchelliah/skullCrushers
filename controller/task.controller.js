@@ -5,28 +5,28 @@ exports.AddTask = function (req, res) {
     if (!req.body.Name) {
         res.status(400).send({ message: "Name cannot be Empty" });
     }
-    else {
+    // else {
 
-        Task.find({"Name": req.body.Name}, (err, Task) => {
-            // Handle any possible database errors
-            if (err) {
-                res.status(500).send(err);
-            }
-            else {
-                if (Task.length != 0) {
-                    Task.Description = req.body.Description || Task.Description;
-                    Task.Status = req.body.Status || Task.Status;
-                    Task.Priority = req.body.Priority || Task.Priority;
-                    Task.updatedDate = new Date().toDateString();
-                    // Save the updated document back to the database
-                    Task.save((err, Task) => {
-                        if (err) {
-                            res.status(500).send(err)
-                        }
-                        res.status(200).send(Task);
-                    });
-                }
-                else {
+    //     Task.find({"Name": req.body.Name}, (err, Task) => {
+    //         // Handle any possible database errors
+    //         if (err) {
+    //             res.status(500).send(err);
+    //         }
+    //         else {
+    //             if (Task.length != 0) {
+    //                 Task.Description = req.body.Description || Task.Description;
+    //                 Task.Status = req.body.Status || Task.Status;
+    //                 Task.Priority = req.body.Priority || Task.Priority;
+    //                 Task.updatedDate = new Date().toDateString();
+    //                 // Save the updated document back to the database
+    //                 Task.save((err, Task) => {
+    //                     if (err) {
+    //                         res.status(500).send(err)
+    //                     }
+    //                     res.status(200).send(Task);
+    //                 });
+    //             }
+    //             else {
                     var taskData = new Task({
                         Name: req.body.Name,
                         Description: req.body.Description,
@@ -46,11 +46,11 @@ exports.AddTask = function (req, res) {
                             res.send(data);
                         }
                     });
-                }
-            }
-        });
+    //             }
+    //         }
+    //     });
 
-    }
+    // }
 };
 
 
