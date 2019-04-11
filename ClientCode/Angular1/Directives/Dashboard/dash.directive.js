@@ -186,21 +186,10 @@ DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
                         "datasets": [{
                             "label": "Task Details",
                             "data": [CompletedCount, PendingCount, InProgressCount],
-                            "fill": true,
-                            "backgroundColor": [
-                                "#28a745",
-                                "#dc3545",
-                                "#ffc107"]
+                            "fill":false,
+                            "lineTension":0.1,
+                            "borderColor":"rgb(75, 192, 192)"
                         }]
-                    },
-                    "options": {
-                        "scales": {
-                            "yAxes": [{
-                                "ticks": {
-                                    "beginAtZero": true
-                                }
-                            }]
-                        }
                     }
                 });
             }
