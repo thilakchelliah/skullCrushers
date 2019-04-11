@@ -21,14 +21,13 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                         $scope.frm.sub = "";
                         $scope.frm.to = "";
                         $scope.loaded = true;
-                        console.log(response)
                         // $scope.mailcontent = $sce.trustAsHtml($scope.message[1].body.content);
                         $scope.sub = $scope.message[0].subject;
                         $scope.from = $scope.message[0].from.emailAddress.name;
                         
                         $scope.from_email = $scope.message[0].from.emailAddress.address;
                         $scope.to = $scope.message[0].toRecipients;
-                        console.log($scope.to[0].emailAddress)
+                        $scope.mailraw = $scope.message[0].body.content;
                         $scope.mailcontent = $scope.message[0].body.content.replace(new RegExp('\n', 'g'), "<br />")
                         // $scope.mailcontent = $scope.message[1].body.content;
 
@@ -62,6 +61,27 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                     },
                     function (err) {
 
+                    });
+            }
+            $scope.loadTask = function(a,b){
+                $scope.Name = a;
+                $scope.Description = b;
+            }
+            $scope.addTask = function () {
+                var taskObj = {
+                    Name: $scope.Name,
+                    Description: $scope.Description,
+                    AllottedTime: $scope.AllottedTime,
+                    Status:"Pending"
+                }
+                
+                DMService.AddTask(taskObj).then(
+                    function (response) {
+                        $('#exampleModalLong').modal('hide')
+                        
+                    },
+                    function () {
+                        $('#exampleModalLong').modal('hide')
                     });
             }
             $scope.create_click = function () {
@@ -135,7 +155,7 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                 $scope.to = args.toRecipients;
                 // $scope.to.email = args.toRecipients[0].emailAddress.address;
 
-
+                $scope.mailraw = args.body.content;
                 $scope.mailcontent = args.body.content.replace(new RegExp('\n', 'g'), "<br />");
             })
             init();

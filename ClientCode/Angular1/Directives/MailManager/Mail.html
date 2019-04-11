@@ -102,13 +102,16 @@
     <div class="col-12 col-md-9" style="padding:10px" ng-if="create == false">
         <div class="col-md-12" style="float:left">
             <div id="profileImage" class="col-md-2" style="float:left">{{from | limitTo:1 | uppercase}}</div>
-            <div class="col-md-10" style="float:left">
+            <div class="col-md-8" style="float:left">
                 <div class="col-md-12" style="float:left;padding-top:5px;font-size:14px;font-weight:600;">
                     {{from | uppercase}}</div>
                 <div class="col-md-12" style="float:left;font-size:14px">{{from_email}}</div>
                 <div class="col-md-12" style="float:left">
                     <div style="font-weight:600;">{{sub}}</div>
                 </div>
+            </div>
+            <div class="col-md-2" style="float:right;text-align:right">
+                <button ng-click="loadTask(sub,mailraw)" data-toggle="modal" data-target="#exampleModalLong" type="button" class="btn btn-primary">Add as a Task</button>
             </div>
         </div>
         <div class="col-md-12" style="float:left;font-size:12px;padding-top:8px;padding-bottom:10px">
@@ -117,7 +120,7 @@
                 {{rec.emailAddress.name}}<{{rec.emailAddress.address}}>
             </div>
         </div>
-        <div class="col-md-12" style="float:left;font-size:12px;padding-top:8px;padding-bottom:10px">
+        <!-- <div class="col-md-12" style="float:left;font-size:12px;padding-top:8px;padding-bottom:10px">
             <div ng-repeat="em in emrel" style="float:left" ng-if="emrel.length != 0">
                 <button type="button" ng-if="em === 'Anger'" class="btn btn-danger btn-sm btl">{{em}}</button>
                 <button type="button" ng-if="em === 'Sadness' || em === 'Tentative'"
@@ -129,7 +132,7 @@
                 <button type="button" class="btn btn-secondary btn-sm btl ">No
                     Emotions</button>
             </div>
-        </div>
+        </div> -->
         <div class="col-md-12" style="padding:20px 10px 10px 15px;float:left;border-top: 2px solid;">
             <p ng-bind-html="mailcontent"></p>
         </div>
@@ -226,3 +229,38 @@
     </div>
     </div>
 </div> -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add Task</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input class="form-control" id="name" ng-model="Name">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control" id="Description" ng-model="Description" style="min-height:200px;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Priority</label>
+                    <input class="form-control" id="allotedTime" ng-model="AllottedTime">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="addTask()">Add Task</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -27,7 +27,7 @@ DMApp.directive('taskDirective', ['$localStorage', function ($localStorage) {
                     Name: $scope.Name,
                     Description: $scope.Description,
                     AllottedTime: $scope.AllottedTime,
-                    Status:"In Progress"
+                    Status:"Pending"
                 }
                 
                 DMService.AddTask(taskObj).then(
