@@ -24,7 +24,6 @@
         color: #fff;
         text-align: center;
         line-height: 80px;
-
     }
 
     .profileImage2 {
@@ -36,7 +35,14 @@
         color: #fff;
         text-align: center;
         line-height: 60px;
+    }
 
+    .headmail {
+        border-bottom: 2px solid;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        font-size: 22px;
+        font-weight: 600;
     }
 </style>
 <div class="row">
@@ -44,12 +50,14 @@
         <ul class="list-group">
             <li class="list-group-item list-group-item-warning">
                 Inbox
-                <!-- <div style="float:right"><i></i></div> -->
+                <span style="float:right;font-size:20px" ng-click="create_click()">
+                    <i class="fas fa-location-arrow text-info"></i>
+                </span>
             </li>
             <li class="list-group-item" ng-repeat="obj in message" style="padding:0px" ng-click="body_click(obj)">
                 <div class="emonji">
-                    <div  class="profileImage2" style="float:left">
-                        {{obj.from.emailAddress.name | limitTo:1}}
+                    <div class="profileImage2" style="float:left">
+                        {{obj.from.emailAddress.name | limitTo:1 | uppercase}}
                     </div>
                     <!-- <img style="height:60%"
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb-iRWIwPsCo9-ZSm_RxGJ4esPPycgOx9yQ4tFy6He-7JewgTM5g" /> -->
@@ -65,9 +73,9 @@
             </li>
         </ul>
     </div>
-    <div class="col-12 col-md-8" style="padding:10px">
+    <div class="col-12 col-md-8" style="padding:10px" ng-if="create == false">
         <div class="col-md-12" style="float:left">
-            <div id="profileImage" class="col-md-2" style="float:left">{{from | limitTo:1}}</div>
+            <div id="profileImage" class="col-md-2" style="float:left">{{from | limitTo:1 | uppercase}}</div>
             <div class="col-md-10" style="float:left">
                 <div class="col-md-12" style="float:left;padding-top:5px;font-size:14px;font-weight:600;">
                     {{from | uppercase}}</div>
@@ -88,9 +96,61 @@
         </div>
 
     </div>
-</div>
 
-<!-- <div class="row">
+    <div class="col-12 col-md-8" style="padding:10px" ng-if="create == true">
+        <div class="col-md-12 headmail">
+            Compose Mail
+            <button type="button" class="btn btn-danger" style="float:right" ng-click="discard()">Discard</button>
+            <button type="button" class="btn btn-success" style="float:right;margin-right:5px"ng-click="send(frm)">Send</button>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">To</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter To recipients" aria-label="to"
+                aria-describedby="basic-addon1" ng-model="frm.to">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">cc</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter cc list" aria-label="cc"
+                aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">bcc</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter bcc list" aria-label="bcc"
+                aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Subject</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Please enter subject of mail" aria-label="Subject"
+                aria-describedby="basic-addon1" ng-model="frm.sub">
+        </div>
+        <div class="alert alert-primary" role="alert" ng-if="contentEmotions.length > 0">
+                <div ng-repeat="emo in contentEmotions">
+                        {{emo.tone_name}}
+                    </div>
+              </div>
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea class="form-control" rows="5" id="message" ng-model="frm.msg"></textarea>
+        </div>
+        
+    </div>
+
+    <!-- <div class="form-group">
+        <label for="email">Your Email</label>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" name="email" placeholder="Enter your Email"/>
+        </div>
+    </div> -->
+    <!-- <div class="row">
     <div class="col-md-12">
         <div class="col-md-4">
             <p>asdfasdashfhsaf lashhflksad lahfj jahsfjkhasdjf kjhasddf a kjsdfjkadsh</p>
