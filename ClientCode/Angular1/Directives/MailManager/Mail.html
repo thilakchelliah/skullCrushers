@@ -1,6 +1,6 @@
 <style>
     .emonji {
-        width: 100px;
+        width: 75px;
         height: 80px;
         padding: 8px;
         margin: 0px;
@@ -12,7 +12,7 @@
         position: relative;
         height: 80px;
         text-align: left;
-        padding: 10px 0px 10px 10px;
+        padding: 4px 0px 10px 10px;
     }
 
     #profileImage {
@@ -27,14 +27,15 @@
     }
 
     .profileImage2 {
-        width: 70px;
-        height: 70px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
         background: #512DA8;
-        font-size: 40px;
+        font-size: 28px;
         color: #fff;
         text-align: center;
-        line-height: 60px;
+        line-height: 48px;
+        margin-top: 7px;
     }
 
     .headmail {
@@ -45,14 +46,18 @@
         font-weight: 600;
     }
 
-    .btl{
-        float:left;
+    .btl {
+        float: left;
         margin-right: 10px;
     }
 
+    .ctag {
+        font-size: 12px;
+        padding: 1px 4px 1px 4px;
+    }
 </style>
 <div class="row">
-    <div class="col-6 col-md-4" style="padding:0px">
+    <div class="col-6 col-md-3" style="padding:0px">
         <ul class="list-group">
             <li class="list-group-item list-group-item-warning">
                 Inbox
@@ -75,11 +80,26 @@
                     <div>
                         <span style="font-weight: 400;font-size: 14px">{{obj.subject}}</span>
                     </div>
+                    <div>
+                        <div ng-repeat="emo in obj.result" style="float:left">
+                            <button type="button" ng-if="emo === 'Anger'"
+                                class="btn btn-danger btn-sm btl ctag">{{emo}}</button>
+                            <button type="button" ng-if="emo === 'Sadness' || emo === 'Tentative'"
+                                class="btn btn-warning btn-sm btl ctag">{{emo}}</button>
+                            <button type="button" ng-if="emo === 'Good'"
+                                class="btn btn-success btn-sm btl ctag">{{emo}}</button>
+                            <button type="button" ng-if="emo === 'Analytical'"
+                                class="btn btn-info btn-sm btl ctag">{{emo}}</button>
+                        </div>
+                        <div style="float:left" ng-if="obj.result.length == 0">
+                            <button type="button" class="btn btn-secondary btn-sm btl ctag">No Emotions</button>
+                        </div>
+                    </div>
                 </div>
             </li>
         </ul>
     </div>
-    <div class="col-12 col-md-8" style="padding:10px" ng-if="create == false">
+    <div class="col-12 col-md-9" style="padding:10px" ng-if="create == false">
         <div class="col-md-12" style="float:left">
             <div id="profileImage" class="col-md-2" style="float:left">{{from | limitTo:1 | uppercase}}</div>
             <div class="col-md-10" style="float:left">
@@ -97,18 +117,31 @@
                 {{rec.emailAddress.name}}<{{rec.emailAddress.address}}>
             </div>
         </div>
+        <div class="col-md-12" style="float:left;font-size:12px;padding-top:8px;padding-bottom:10px">
+            <div ng-repeat="em in emrel" style="float:left" ng-if="emrel.length != 0">
+                <button type="button" ng-if="em === 'Anger'" class="btn btn-danger btn-sm btl">{{em}}</button>
+                <button type="button" ng-if="em === 'Sadness' || em === 'Tentative'"
+                    class="btn btn-warning btn-sm btl">{{em}}</button>
+                <button type="button" ng-if="em === 'Good'" class="btn btn-success btn-sm btl">{{em}}</button>
+                <button type="button" ng-if="em === 'Analytical'" class="btn btn-info btn-sm btl ">{{em}}</button>
+            </div>
+            <div style="float:left" ng-if="emrel.length == 0">
+                <button type="button" class="btn btn-secondary btn-sm btl ">No
+                    Emotions</button>
+            </div>
+        </div>
         <div class="col-md-12" style="padding:20px 10px 10px 15px;float:left;border-top: 2px solid;">
             <p ng-bind-html="mailcontent"></p>
         </div>
 
     </div>
 
-    <div class="col-12 col-md-8" style="padding:10px" ng-if="create == true">
+    <div class="col-12 col-md-9" style="padding:10px" ng-if="create == true">
         <div class="col-md-12 headmail">
             Compose Mail
             <button type="button" class="btn btn-danger" style="float:right" ng-click="discard()">Discard</button>
-            <button type="button" class="btn btn-primary" style="float:right;margin-right:5px" ng-if="emarray.length > 0"
-                    ng-click="send(frm)">Recheck</button>
+            <button type="button" class="btn btn-primary" style="float:right;margin-right:5px"
+                ng-if="emarray.length > 0" ng-click="send(frm)">Recheck</button>
             <button type="button" class="btn btn-success" style="float:right;margin-right:5px"
                 ng-click="sen(frm)">Send</button>
         </div>
@@ -144,13 +177,14 @@
             <div class="alert col-md-12" ng-class="mal_stat" role="alert" style="float:left">
                 <div ng-repeat="emo in emarray" style="float:left">
                     <button type="button" ng-if="emo === 'Anger'" class="btn btn-danger btn-sm btl">{{emo}}</button>
-                    <button type="button" ng-if="emo === 'Sadness' || emo === 'Tentative'" class="btn btn-warning btn-sm btl">{{emo}}</button>
+                    <button type="button" ng-if="emo === 'Sadness' || emo === 'Tentative'"
+                        class="btn btn-warning btn-sm btl">{{emo}}</button>
                     <button type="button" ng-if="emo === 'Good'" class="btn btn-success btn-sm btl">{{emo}}</button>
                     <button type="button" ng-if="emo === 'Analytical'" class="btn btn-info btn-sm btl">{{emo}}</button>
                 </div>
                 <div>To proceed with this tone please click Send button again</div>
             </div>
-            
+
 
         </div>
         <div class="form-group">
