@@ -3,8 +3,8 @@
 
 
 var sharedModule = angular.module("shared", []);
-var DMApp = angular.module("trApp.Main", ['ui.router', 'ngStorage', 'shared']);
-var tRDashboardApp = angular.module("trApp.Dashboard", ['ui.router', 'ngStorage', 'ui.router.state.events', 'shared']);
+var DMApp = angular.module("trApp.Main", ['ui.router', 'ngStorage', 'shared','ngSanitize']);
+var tRDashboardApp = angular.module("trApp.Dashboard", ['ui.router', 'ngStorage', 'ui.router.state.events', 'shared','ngSanitize']);
 
 
 DMApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider,
