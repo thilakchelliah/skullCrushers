@@ -7,7 +7,7 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Mail Overview</h6>
+                    <h6 class="m-0 font-weight-bold " style="color: #343A40">Mail Overview</h6>
 
                 </div>
                 <!-- Card Body -->
@@ -21,7 +21,8 @@
                                 <div class=""></div>
                             </div>
                         </div>
-                        <canvas id="chartjs-1" class="chartjs" class="chartjs-render-monitor" width="50px" height="31px"></canvas>
+                        <canvas id="chartjs-1" class="chartjs" class="chartjs-render-monitor" width="50px"
+                            height="31px"></canvas>
                     </div>
                 </div>
             </div>
@@ -32,7 +33,7 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Tone Based Mail Overview</h6>
+                    <h6 class="m-0 font-weight-bold " style="color: #343A40">Tone Based Mail Overview</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -73,17 +74,29 @@
             </div>
         </div>
         <div class="col-md-3">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Quick Peeks</h6>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                            <span>No Of Meetings Today:</span><span>{{meetingNum}}</span>
+            <div class="card1">
+                <div class="card1-block">
+                    <h4 class="card1-title font-weight-normal text-success">Tasks</h4>
+                    <p class="card1-text">Completed</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%"
+                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
                     </div>
                 </div>
             </div>
+            <div class="card1">
+                <div class="card1-block">
+                    <h4 class="card1-title font-weight-normal text-success">Meetings</h4>
+                    <p class="card1-text">Coverage</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 75%"
+                            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                    </div>
+                </div>
+            </div>
+           
+
+        </div>
     </div>
     <!-- Content here -->
     <div class="row">
@@ -93,7 +106,7 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Task Overview</h6>
+                    <h6 class="m-0 font-weight-bold " style="color: #343A40">Task Overview</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
