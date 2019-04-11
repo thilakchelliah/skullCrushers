@@ -1,6 +1,5 @@
 /*-------------Common Styles ------------------------*/
 
-
 /*.marTop10 {
     margin-top: 10px;
 }
@@ -47,409 +46,452 @@
     content: '';
 }*/
 
-
 /*=========================
   Footer
  ================= */
 
 footer {
-    background: #009EFF;
+  background: #009EFF;
 }
 
-.inner-footer ul li,
-a {
-    list-style: none;
+.inner-footer ul li, a {
+  list-style: none;
 }
 
 .widgetheading {
-    color: #FFF;
-    font-weight: 600;
-    margin-top: 40px;
-    margin-bottom: 40px;
+  color: #FFF;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .f-about a h1 {
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    color: #FFF;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #FFF;
 }
 
 .f-about a h1 span {
-    color: #FFF;
+  color: #FFF;
 }
 
 .f-about p {
-    font-size: 14px;
-    color: #FFF;
-
+  font-size: 14px;
+  color: #FFF;
 }
 
 .l-posts h3 {
-    margin-left: 40px;
+  margin-left: 40px;
 }
 
 .l-posts li a {
-    font-size: 14px;
-    color: #FFF;
-    margin: 0;
-    font-weight: 300;
-    border-bottom: 1px solid #f6f6f6;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    display: block;
+  font-size: 14px;
+  color: #FFF;
+  margin: 0;
+  font-weight: 300;
+  border-bottom: 1px solid #f6f6f6;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  display: block;
 }
 
 .l-posts li a:hover {
-    color: #FFF;
+  color: #FFF;
 }
 
 .f-contact p {
-    font-size: 14px;
-    color: #FFF;
-    margin: 0;
-
-    font-weight: 300;
-    margin-bottom: 15px;
+  font-size: 14px;
+  color: #FFF;
+  margin: 0;
+  font-weight: 300;
+  margin-bottom: 15px;
 }
 
 .f-contact i {
-    color: #FFF;
-    font-size: 16px;
-    margin-right: 10px;
+  color: #FFF;
+  font-size: 16px;
+  margin-right: 10px;
 }
 
 .f-contact a:hover p {
-    color: #FFF;
+  color: #FFF;
 }
 
 .last-div {
-    margin-top: 40px;
-    background: #284B5F;
-    padding: 20px 0;
-    position: relative;
+  margin-top: 40px;
+  background: #284B5F;
+  padding: 20px 0;
+  position: relative;
 }
 
 .copyright {
-    font-size: 14px;
-    color: #73f4fc;
-    margin-top: 15px;
-    font-weight: 300;
-    float: left;
+  font-size: 14px;
+  color: #73f4fc;
+  margin-top: 15px;
+  font-weight: 300;
+  float: left;
 }
 
 .copyright a {
-    color: #73f4fc;
+  color: #73f4fc;
 }
 
 .copyright a:hover {
-    text-decoration: underline;
-    color: #36CBD4;
+  text-decoration: underline;
+  color: #36CBD4;
 }
 
 ul.social-network {
-    list-style: none;
-    margin-top: 15px;
-    float: right;
-    font-size: 18px;
-    margin-right: 20px;
+  list-style: none;
+  margin-top: 15px;
+  float: right;
+  font-size: 18px;
+  margin-right: 20px;
 }
 
 ul.social-network li {
-    display: inline;
-    margin: 0 15px;
-    color: #73f4fc;
+  display: inline;
+  margin: 0 15px;
+  color: #73f4fc;
 }
 
 ul.social-network li a {
-    color: #73f4fc;
+  color: #73f4fc;
 }
 
 ul.social-network li a:hover {
-    color: #fff;
+  color: #fff;
 }
 
 a.scrollup {
-    color: #fff;
-    height: 55px;
-    width: 55px;
-    font-size: 22px;
-    line-height: 50px;
-    text-align: center;
-    text-decoration: none;
-    position: fixed;
-    bottom: 15px;
-    right: 40px;
-    opacity: 0, 5;
-    border-radius: 50%;
-    z-index: 999;
+  color: #fff;
+  height: 55px;
+  width: 55px;
+  font-size: 22px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  position: fixed;
+  bottom: 15px;
+  right: 40px;
+  opacity: 0, 5;
+  border-radius: 50%;
+  z-index: 999;
 }
 
 a.scrollup:hover {
-    opacity: 1;
-    background-color: #36CBD4;
-    color: #fff;
-    ;
+  opacity: 1;
+  background-color: #36CBD4;
+  color: #fff;
+  ;
 }
 
 /*-------------Blog card Style-------------------*/
 
 .blog-card {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
-
-
 .dashboardNav {
-    display: list-item;
-    padding-left: 40px;
+  display: list-item;
+  padding-left: 40px;
 }
 
 /*-------------Tagger styles -------------------*/
 
 .tag-input-ctn {
-    border: 1px solid #ccc;
-    padding: 2px 3px;
-    display: inline-block;
-    width: 100%;
-    border-radius: 3px;
-    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075);
+  border: 1px solid #ccc;
+  padding: 2px 3px;
+  display: inline-block;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075);
 }
 
 .tag-input-ctn input {
-    display: inline-block;
-    float: left;
-    height: 18px;
-    padding: 0px;
-    font-size: 13px;
-    line-height: 18px;
-    color: black;
-    border: 0px;
-    margin: 2px;
+  display: inline-block;
+  float: left;
+  height: 18px;
+  padding: 0px;
+  font-size: 13px;
+  line-height: 18px;
+  color: black;
+  border: 0px;
+  margin: 2px;
 }
 
 .tag-input-ctn input:focus {
-    outline: 0;
-    box-shadow: 0px;
+  outline: 0;
+  box-shadow: 0px;
 }
 
 .tag-input-ctn .input-tag {
-    padding: 2px 4px;
-    line-height: 12px;
-    font-size: 11px;
-    background-color: #e3eaf6;
-    display: inline-block;
-    float: left;
-    border-radius: 2px;
-    margin: 2px 5px 2px 0px;
-    border: 1px solid #a9b6d2;
+  padding: 2px 4px;
+  line-height: 12px;
+  font-size: 11px;
+  background-color: #e3eaf6;
+  display: inline-block;
+  float: left;
+  border-radius: 2px;
+  margin: 2px 5px 2px 0px;
+  border: 1px solid #a9b6d2;
 }
 
 .tag-input-ctn .input-tag .delete-tag {
-    display: inline-block;
-    font-size: 12px;
-    cursor: pointer;
-    padding: 0px 2px;
+  display: inline-block;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0px 2px;
 }
 
 .tag-input-ctn .input-tag .delete-tag:hover {
-    background-color: #96b4d2;
+  background-color: #96b4d2;
 }
+
 .main {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    clear: both;
-    background-color: white;
-  }
-  .main .nav {
-    width: 200px;
-    height: 100%;
-    float: left;
-    background-color: rgba(227, 234, 235, 0.8);
-  }
-  .main .nav .searchbox {
-    width: 170px;
-    height: 30px;
-    line-height: 30px;
-    margin: 15px;
-    background-color: White;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-  }
-  .main .nav .searchbox i {
-    display: inline-block;
-    color: #bbb;
-    margin-left: 5px;
-    margin-right: 5px;
-    font-size: 16px;
-  }
-  .main .nav .searchbox input {
-    display: inlin-block;
-    width: 120px;
-    background-color: White;
-    color: Black;
-    font-family: "Lato";
-    border: 0px;
-  }
-  .main .nav .menu {
-    width: 100%;
-    margin: 15px;
-    color: #555;
-  }
-  .main .nav .menu .title {
-    font-weight: 700;
-    font-size: 1.0em;
-    text-transform: uppercase;
-  }
-  .main .nav .menu ul {
-    padding-left: 0px;
-  }
-  .main .nav .menu ul li {
-    cursor: pointer;
-    list-style: none;
-    margin: 5px 0px;
-    padding: 5px 0px;
-    font-weight: 600;
-    margin-right: 30px;
-    padding-left: 10px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-    transition: 0.25s all;
-  }
-  .main .nav .menu ul li.active {
-    color: #79BC46;
-  }
-  .main .nav .menu ul li:hover {
-    background-color: #999;
-  }
-  .main .nav .menu ul li i {
-    font-size: 1.4em;
-    margin-right: 10px;
-  }
-  .main .view {
-    position: relative;
-  }
-  .main .view .viewHeader {
-    width: 100%;
-    height: 70px;
-    line-height: 70px;
-    padding: 20px 20px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    border-bottom: 1px solid #E0E0E0;
-  }
-  .main .view .viewHeader .title {
-    float: left;
-    font-size: 1.4em;
-    font-weight: 400;
-    padding: 0px;
-    color: #AAA;
-    margin-top: -18px;
-  }
-  .main .view .viewHeader .functions {
-    float: right;
-  }
-  .main .view .viewHeader .functions .button {
-    float: right;
-    height: 30px;
-    line-height: 30px;
-    background-color: #AAA;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-    margin: 0px 5px;
-    padding: 0px 20px;
-    cursor: pointer;
-    color: White;
-    font-weight: 700;
-  }
-  .main .view .viewHeader .functions .button.active {
-    background-color: #54b9cd;
-  }
-  .main .view .viewHeader .functions .button.inverz {
-    background-color: inherit;
-    border: 1px solid #AAA;
-    width: 10px;
-    color: #AAA;
-    font-size: 1.3em;
-    padding-left: 10px;
-    padding-right: 16px;
-  }
-  .main .view .content {
-  
-    left: 0px;
-    top: 70px;
-    right: 0px;
-    bottom: 0px;
-    padding: 10px;
-  }
-  .main .view .content .list .title {
-    width: 100%;
-    padding: 10px;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: #54b9cd;
-  }
-  .main .view .content .list ul {
-    width: 100%;
-    padding-left: 10px;
-    color: #777;
-  }
-  .main .view .content .list ul li {
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    list-style: none;
-    border-top: 1px solid #AAA;
-  }
-  .main .view .content .list ul li.checked {
-    background-color: #F0F4F5;
-  }
-  .main .view .content .list ul li:last-child {
-    border-bottom: 1px solid #AAA;
-  }
-  .main .view .content .list ul li i {
-    float: left;
-    width: 30px;
-    height: 50px;
-    line-height: 50px;
-    margin-left: 10px;
-    font-size: 1.3em;
-  }
-  .main .view .content .list ul li span {
-    float: left;
-    font-weight: 600;
-  }
-  .main .view .content .list ul li .info {
-    float: right;
-  }
-  .main .view .content .list ul li .info span {
-    font-weight: 300;
-  }
-  .main .view .content .list ul li .info .button {
-    float: right;
-    width: 100px;
-    height: 30px;
-    line-height: 30px;
-    background-color: #AAA;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-    margin: 10px 10px;
-    text-align: center;
-    cursor: pointer;
-    color: White;
-    font-weight: 700;
-  }
-  .main .view .content .list ul li .info .button.green {
-    background-color: #85C157;
-  }
-  
-  .clear {
-    clear: both;
-  }
-  
+  position: relative;
+  width: 100%;
+  height: 100%;
+  clear: both;
+  background-color: white;
+}
+
+.main .nav {
+  width: 200px;
+  height: 100%;
+  float: left;
+  background-color: rgba(227, 234, 235, 0.8);
+}
+
+.main .nav .searchbox {
+  width: 170px;
+  height: 30px;
+  line-height: 30px;
+  margin: 15px;
+  background-color: White;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.main .nav .searchbox i {
+  display: inline-block;
+  color: #bbb;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+.main .nav .searchbox input {
+  display: inlin-block;
+  width: 120px;
+  background-color: White;
+  color: Black;
+  font-family: "Lato";
+  border: 0px;
+}
+
+.main .nav .menu {
+  width: 100%;
+  margin: 15px;
+  color: #555;
+}
+
+.main .nav .menu .title {
+  font-weight: 700;
+  font-size: 1.0em;
+  text-transform: uppercase;
+}
+
+.main .nav .menu ul {
+  padding-left: 0px;
+}
+
+.main .nav .menu ul li {
+  cursor: pointer;
+  list-style: none;
+  margin: 5px 0px;
+  padding: 5px 0px;
+  font-weight: 600;
+  margin-right: 30px;
+  padding-left: 10px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  transition: 0.25s all;
+}
+
+.main .nav .menu ul li.active {
+  color: #79BC46;
+}
+
+.main .nav .menu ul li:hover {
+  background-color: #999;
+}
+
+.main .nav .menu ul li i {
+  font-size: 1.4em;
+  margin-right: 10px;
+}
+
+.main .view {
+  position: relative;
+}
+
+.main .view .viewHeader {
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  padding: 20px 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.main .view .viewHeader .title {
+  float: left;
+  font-size: 1.4em;
+  font-weight: 400;
+  padding: 0px;
+  color: #AAA;
+  margin-top: -18px;
+}
+
+.main .view .viewHeader .functions {
+  float: right;
+}
+
+.main .view .viewHeader .functions .button {
+  float: right;
+  height: 30px;
+  line-height: 30px;
+  background-color: #AAA;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  margin: 0px 5px;
+  padding: 0px 20px;
+  cursor: pointer;
+  color: White;
+  font-weight: 700;
+}
+
+.main .view .viewHeader .functions .button.active {
+  background-color: #54b9cd;
+}
+
+.main .view .viewHeader .functions .button.inverz {
+  background-color: inherit;
+  border: 1px solid #AAA;
+  width: 10px;
+  color: #AAA;
+  font-size: 1.3em;
+  padding-left: 10px;
+  padding-right: 16px;
+}
+
+.main .view .content {
+  left: 0px;
+  top: 70px;
+  right: 0px;
+  bottom: 0px;
+  padding: 10px;
+}
+
+.main .view .content .list .title {
+  width: 100%;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #54b9cd;
+}
+
+.main .view .content .list ul {
+  width: 100%;
+  padding-left: 10px;
+  color: #777;
+}
+
+.main .view .content .list ul li {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  list-style: none;
+  border-top: 1px solid #AAA;
+}
+
+.main .view .content .list ul li.checked {
+  background-color: #F0F4F5;
+}
+
+.main .view .content .list ul li:last-child {
+  border-bottom: 1px solid #AAA;
+}
+
+.main .view .content .list ul li i {
+  float: left;
+  width: 30px;
+  height: 50px;
+  line-height: 50px;
+  margin-left: 10px;
+  font-size: 1.3em;
+}
+
+.main .view .content .list ul li span {
+  float: left;
+  font-weight: 600;
+}
+
+.main .view .content .list ul li .info {
+  float: right;
+}
+
+.main .view .content .list ul li .info span {
+  font-weight: 300;
+}
+
+.main .view .content .list ul li .info .button {
+  float: right;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #AAA;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  margin: 10px 10px;
+  text-align: center;
+  cursor: pointer;
+  color: White;
+  font-weight: 700;
+}
+
+.main .view .content .list ul li .info .button.green {
+  background-color: #85C157;
+}
+
+.clear {
+  clear: both;
+}
+
+.pgwTitl {
+  font-size: 40px;
+  margin-bottom: 90px;
+  position: relative;
+  text-transform: capitalize;
+  color: #555;
+  text-align: center !important;
+}
+
+.pgwTitl::after {
+  border: 1px solid #555;
+  bottom: -20px;
+  content: "";
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  width: 20%;
+}
