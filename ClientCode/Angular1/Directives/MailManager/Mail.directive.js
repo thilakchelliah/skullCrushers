@@ -35,7 +35,7 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                         console.log($scope.message[0]);
                         $.each($scope.message, function (key1, value1) {
                                 let toneParams = {
-                                    tone_input: value1.body.content + value1.subject,
+                                    tone_input: value1.body.content + " " + value1.subject,
                                     content_type: 'text/plain'
                                 };
                             DMService.ToneAnalyse(toneParams).then(
@@ -102,7 +102,7 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                 else {
                     $scope.emarray = [];
                     let toneParams1 = {
-                        tone_input: a,
+                        tone_input: a.msg + " " + a.sub,
                         content_type: 'text/plain'
                     };
                     DMService.ToneAnalyse(toneParams1).then(

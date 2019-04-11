@@ -1,32 +1,38 @@
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding:0px;">
-  <a class="navbar-brand" href="#" style="padding:16px;background-color:#FF652F;font-size:30px; ">Smart Assistant</a>
-  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   <a class="navbar-brand" href="#" style="padding:16px;background-color:#FF652F;font-size:30px; ">Smart Assistant</a>
+   <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button> -->
-  <div style="width:40%"></div>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav" style="font-size: 19px">
-      <li class="nav-item active">
-        <a class="nav-link" ui-sref="dashboard">Dashboard <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" ui-sref="Mail">Mails</a>
-      </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" ui-sref="task">Tasks</a>
-      </li>
-      
-      <li class="nav-item">
+   <div style="width:40%"></div>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav" style="font-size: 19px">
+         <li class="nav-item active">
+            <a class="nav-link" ui-sref="dashboard">Dashboard <span class="sr-only">(current)</span></a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" ui-sref="Mail">Mails</a>
+         </li>
+
+         <li class="nav-item">
+            <a class="nav-link" ui-sref="task">Tasks</a>
+         </li>
+         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+               aria-expanded="false">News</a>
+            <div class="dropdown-menu">
+               <a class="dropdown-item" ui-sref="FinancialNews">Financial News</a>
+               <a class="dropdown-item" ui-sref="TechNews">Latest Technologies</a>
+            </div>
+         </li>
+         <!-- <li class="nav-item">
         <a class="nav-link" ui-sref="FinancialNews">Financial News</a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" ui-sref="TechNews">Latest Technologies</a>
-      </li>
-    </ul>
-  </div>
+      </li> -->
+      </ul>
+   </div>
 </nav>
 
 <!-- <nav class="navbar navbar-expand-md navbar-fixed-top navbar-dark bg-dark">
