@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container" style="margin-top:20px;">
 
     <div class="row">
 
         <!-- Area Chart -->
-        <div class="col-xl-8 col-lg-7">
+        <div class="col-md-6">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Mail Overview</h6>
-                    
+
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -28,7 +28,7 @@
         </div>
 
         <!-- Pie Chart -->
-        <div class="col-xl-4 col-lg-5">
+        <div class="col-md-3">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -45,12 +45,66 @@
                                 <div class=""></div>
                             </div>
                         </div>
-                        <canvas id="chartjs-4" class="chartjs" width="undefined" height="200px"  >
+                        <canvas id="chartjs-4" class="chartjs" width="undefined" height="200px">
                     </div>
-                  
+                    <div class="mt-4 text-center small">
+                        <span class="mr-2">
+                            <i class="fas fa-angry text-primary"></i> Anger
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-success"></i> Fear
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-info"></i> Joy
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-info"></i> Sadness
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-info"></i> Analytical
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-info"></i> Confident
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-info"></i> Tentative
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-info"></i> Other
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Content here -->
+    <div class="row">
+
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Task Overview</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="chart-pie pt-4 pb-2">
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <canvas id="chartjs-4" class="chartjs" width="undefined" height="200px">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </div>

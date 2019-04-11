@@ -145,7 +145,7 @@ DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
                     },
                     options: {
                         legend: {
-                            position: 'right'
+                            display: false
                         }
                     }
                 });
