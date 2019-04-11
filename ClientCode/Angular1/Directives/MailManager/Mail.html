@@ -1,42 +1,92 @@
 <style>
-.emonji{
-    width: 100px;
-    height: 80px;
-    padding: 0px;
-    margin: 0px;
-    float:left;
-    text-align:center;
-}
-.info{
-    position: relative;
-    height: 80px;
-    text-align: left;
-    padding: 10px 0px 10px 10px;
-}
+    .emonji {
+        width: 100px;
+        height: 80px;
+        padding: 8px;
+        margin: 0px;
+        float: left;
+        text-align: center;
+    }
+
+    .info {
+        position: relative;
+        height: 80px;
+        text-align: left;
+        padding: 10px 0px 10px 10px;
+    }
+
+    #profileImage {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: #512DA8;
+        font-size: 50px;
+        color: #fff;
+        text-align: center;
+        line-height: 80px;
+
+    }
+
+    .profileImage2 {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: #512DA8;
+        font-size: 40px;
+        color: #fff;
+        text-align: center;
+        line-height: 60px;
+
+    }
 </style>
 <div class="row">
     <div class="col-6 col-md-4" style="padding:0px">
         <ul class="list-group">
-            <li class="list-group-item list-group-item-warning">Inbox</li>
-            <li class="list-group-item" ng-repeat="obj in message" style="padding:0px" ng-click="body_click(obj.body.content)">
+            <li class="list-group-item list-group-item-warning">
+                Inbox
+                <!-- <div style="float:right"><i></i></div> -->
+            </li>
+            <li class="list-group-item" ng-repeat="obj in message" style="padding:0px" ng-click="body_click(obj)">
                 <div class="emonji">
-                    <img style="height:100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb-iRWIwPsCo9-ZSm_RxGJ4esPPycgOx9yQ4tFy6He-7JewgTM5g"/>
+                    <div  class="profileImage2" style="float:left">
+                        {{obj.from.emailAddress.name | limitTo:1}}
+                    </div>
+                    <!-- <img style="height:60%"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb-iRWIwPsCo9-ZSm_RxGJ4esPPycgOx9yQ4tFy6He-7JewgTM5g" /> -->
                 </div>
                 <div class="info">
-                <div>
-                    <span style="font-weight: 600;font-size: 14px">{{obj.from.emailAddress.name}}</span>
-                </div>
-                <div>
-                    <span style="font-weight: 400;font-size: 14px">{{obj.subject}}</span>
-                </div>
+                    <div>
+                        <span style="font-weight: 600;font-size: 14px">{{obj.from.emailAddress.name}}</span>
+                    </div>
+                    <div>
+                        <span style="font-weight: 400;font-size: 14px">{{obj.subject}}</span>
+                    </div>
                 </div>
             </li>
         </ul>
     </div>
-    <div class="col-12 col-md-8" style="padding:0px">
-        <p>
-            {{mailcontent}}
-        </p>
+    <div class="col-12 col-md-8" style="padding:10px">
+        <div class="col-md-12" style="float:left">
+            <div id="profileImage" class="col-md-2" style="float:left">{{from | limitTo:1}}</div>
+            <div class="col-md-10" style="float:left">
+                <div class="col-md-12" style="float:left;padding-top:5px;font-size:14px;font-weight:600;">
+                    {{from | uppercase}}</div>
+                <div class="col-md-12" style="float:left;font-size:14px">{{from_email}}</div>
+                <div class="col-md-12" style="float:left">
+                    <div style="font-weight:600;">{{sub}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" style="float:left;font-size:12px;padding-top:8px;padding-bottom:10px">
+            <span style="float:left">To : </span>
+            <div ng-repeat="rec in to" style="float:left">
+                {{rec.emailAddress.name}}<{{rec.emailAddress.address}}>
+            </div>
+        </div>
+        <div class="col-md-12" style="padding:20px 10px 10px 15px;float:left;border-top: 2px solid;">
+            <p ng-bind-html="mailcontent"></p>
+        </div>
+
     </div>
 </div>
 
