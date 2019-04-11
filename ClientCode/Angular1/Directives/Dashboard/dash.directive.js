@@ -7,14 +7,23 @@ DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
             $scope.loaded = false;
             $scope.message = [];
             $scope.indMessaArray = [];
+            $scope.meetingNum = 0;
             var init = function () {
-                debugger;
+                
+                DMService.ListEvents().then(
+                    function(response){
+                        debugger;
+                        $scope.meetingNum=response.data.value.length;
+                    },
+                    function(err){
+
+                    });
                 DMService.GetMailList().then(
                     function (response) {
-                        debugger;
+                        
                         $scope.message = response.data.messages;
                         $scope.loaded = true;
-                        console.log($scope.message);
+                        // console.log($scope.message);
                         var messLength = 0
                         $.each($scope.message, function (key, value) {
                             let toneParams = {
@@ -23,18 +32,18 @@ DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
                             };
                             DMService.ToneAnalyse(toneParams).then(
                                 function (tonResp) {
-                                    $scope.indMessaArray.push({ emailId: value.id, result: tonResp.data });
+                                    $scope.indMessaArray.push({ emailId: value.id,message:value.body.content, result: tonResp.data });
                                     messLength = messLength + 1;
                                     if (messLength == $scope.message.length) {
                                         $scope.pieChartGenerator();
                                     }
-                                    console.log(tonResp)
+                                    // console.log(tonResp)
                                 },
                                 function (err) {
 
                                 });
                         });
-                        console.log($scope.indMessaArray)
+                        // console.log($scope.indMessaArray)
                         $scope.barChartGenerator();
 
 
@@ -94,7 +103,7 @@ DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
             }
 
             $scope.pieChartGenerator = function () {
-                var AngerCnt=0, FearCnt=0, JoyCnt=0, SadnessCnt=0, AnalyticalCnt=0, ConfidentCnt=0, TentativeCnt=0, otherCnt = 0;
+                var AngerCnt = 0, FearCnt = 0, JoyCnt = 0, SadnessCnt = 0, AnalyticalCnt = 0, ConfidentCnt = 0, TentativeCnt = 0, otherCnt = 0;
 
                 $.each($scope.indMessaArray, function (k, val123) {
                     val = val123.result;
@@ -123,7 +132,7 @@ DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
                         otherCnt = otherCnt + 1;
                     }
                 });
-                debugger;
+                
                 new Chart(document.getElementById("chartjs-4"), {
                     "type": "doughnut",
                     "data": {
@@ -132,14 +141,14 @@ DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
                             "label": "Tone Analyser",
                             "data": [AngerCnt, FearCnt, JoyCnt, SadnessCnt, AnalyticalCnt, ConfidentCnt, TentativeCnt, otherCnt],
                             "backgroundColor": [
-                                "#f38b4a",
-                                "#56d798",
-                                "#ff8397",
-                                "#6970d5",
-                                "#00FF7F",
-                                "#48D1CC",
-                                "#FF1493",
-                                "#FF1496"
+                                "#FF0000",
+                                "#FF6600",
+                                "#33FF00",
+                                "#000000",
+                                "#00FFFF",
+                                "#0033FF",
+                                "#9933FF",
+                                "#D3D3D3"
                             ],
                         }]
                     },

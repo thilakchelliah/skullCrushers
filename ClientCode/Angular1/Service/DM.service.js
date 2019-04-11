@@ -10,13 +10,16 @@ DMApp.service('DMService', ['$http', function ($http) {
     };
     var _toneAnalyse = function (val) {
         console.log(val)
-        return $http.post('api/mail/toneAnalyse',val);
+        return $http.post('api/mail/toneAnalyse', val);
     };
-   
+    var _listEvents = function () {
+        return $http.get('api/mail/listMeetings');
+    }
 
     DMService.GetMailList = _getMailList;
     DMService.GetMailListPlain = _getMailListPlain;
     DMService.ToneAnalyse = _toneAnalyse;
-    
+    DMService.ListEvents = _listEvents
+
     return DMService;
 }]);

@@ -32,7 +32,7 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Tone Based Overview</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Tone Based Mail Overview</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -49,33 +49,47 @@
                     </div>
                     <div class="mt-4 text-center small">
                         <span class="mr-2">
-                            <i class="fas fa-angry text-primary"></i> Anger
+                            <i class="fas fa-circle " style="color: #FF0000"></i> Anger
                         </span>
                         <span class="mr-2">
-                            <i class="fas fa-circle text-success"></i> Fear
+                            <i class="fas fa-circle " style="color: #FF6600"></i> Fear
                         </span>
                         <span class="mr-2">
-                            <i class="fas fa-circle text-info"></i> Joy
+                            <i class="fas fa-circle " style="color: #33FF00"></i> Joy
+                        </span>
+                        </br>
+                        <span class="mr-2">
+                            <i class="fas fa-circle " style="color: #000000"></i> Sadness
                         </span>
                         <span class="mr-2">
-                            <i class="fas fa-circle text-info"></i> Sadness
+                            <i class="fas fa-circle " style="color: #00FFFF"></i> Analytical
+                        </span>
+                        </br>
+                        <span class="mr-2">
+                            <i class="fas fa-circle " style="color: #0033FF"></i>Confident
                         </span>
                         <span class="mr-2">
-                            <i class="fas fa-circle text-info"></i> Analytical
+                            <i class="fas fa-circle " style="color: #9933FF "></i> Tentative
                         </span>
                         <span class="mr-2">
-                            <i class="fas fa-circle text-info"></i> Confident
-                        </span>
-                        <span class="mr-2">
-                            <i class="fas fa-circle text-info"></i> Tentative
-                        </span>
-                        <span class="mr-2">
-                            <i class="fas fa-circle text-info"></i> Other
+                            <i class="fas fa-circle " style="color: #D3D3D3 "></i> Other
                         </span>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="col-md-3">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Quick Peeks</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                            <span>No Of Meetings Today:</span><span>{{meetingNum}}</span>
+                    </div>
+                </div>
+            </div>
     </div>
     <!-- Content here -->
     <div class="row">

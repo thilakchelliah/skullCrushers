@@ -34,7 +34,7 @@ var storage = multer.diskStorage({
 global.multerUpload = multer({ storage: storage });
 
 
-mongoose.connect("mongodb://thilaktest:test123@ds143070.mlab.com:43070/tech_registry_db", { useMongoClient: true }, function(err, db) {
+mongoose.connect("mongodb://emp_sai_test:thi2551250@ds135786.mlab.com:35786/smart_assis_emp", { useMongoClient: true }, function(err, db) {
   if (err) {
     return console.dir(err);
   }

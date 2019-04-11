@@ -132,3 +132,55 @@ exports.toneAnalyse = function (req, res, next) {
     return res.json(data);
   });
 }
+
+
+exports.listMeetings = function (req, res, next) {
+  let parms = { title: 'Inbox', active: { inbox: true } };
+
+  const accessToken = authHelper.getAccessToken(req.cookies, res);
+  const userName = req.cookies.graph_user_name;
+
+  if (accessToken && userName) {
+    parms.user = userName;
+
+    // Initialize Graph client
+    const client = graph.Client.init({
+      authProvider: (done) => {
+        done(null, accessToken);
+      }
+    });
+
+    try {
+      var today = new Date();
+      var tomorrow = new Date();
+      today.setHours(0,0,0,0);
+      tomorrow.setHours(0,0,0,0);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      var startDate = today.toISOString();
+      var enddate = tomorrow.toISOString();
+      // Get the 10 newest messages from inbox
+      client
+        .api('/me/calendar/calendarView?startDateTime=' + startDate + '&endDateTime=' + enddate)
+
+        .get().then(
+          function (result) {
+            return res.json(result);
+          },
+          function (err) {
+            res.status(500).send(err);
+          }
+        );
+
+
+    } catch (err) {
+      parms.message = 'Error retrieving messages';
+      parms.error = { status: `${err.code}: ${err.message}` };
+      parms.debug = JSON.stringify(err.body, null, 2);
+      res.status(500).send(parms)
+    }
+
+  } else {
+    // Redirect to home
+    res.redirect('/');
+  }
+}
