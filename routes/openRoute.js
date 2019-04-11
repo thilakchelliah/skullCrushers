@@ -11,6 +11,6 @@ router.get('/mail/listPlain', mailController.listPlain);
 router.post('/mail/toneAnalyse', mailController.toneAnalyse);
 router.get('/mail/listMeetings', mailController.listMeetings);
 router.post('/task/AddTask', taskController.AddTask);
-router.post('/task/GetAllTask', taskController.GetAllTask);
+router.get('/task/GetAllTask', taskController.GetAllTask);
 
 module.exports = router;

@@ -18,6 +18,9 @@ DMApp.service('DMService', ['$http', function ($http) {
     var _getTaskList = function () {
         return $http.get('api/task/GetAllTask');
     }
+    var _addTask = function (data) {
+        return $http.post('api/task/AddTask',data);
+    }
     
     
 
@@ -26,6 +29,7 @@ DMApp.service('DMService', ['$http', function ($http) {
     DMService.ToneAnalyse = _toneAnalyse;
     DMService.ListEvents = _listEvents
     DMService.GetTaskList = _getTaskList
+    DMService.AddTask = _addTask
 
     return DMService;
 }]);

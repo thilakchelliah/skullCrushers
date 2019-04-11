@@ -10,6 +10,7 @@ exports.AddTask = function (req, res) {
             Name: req.body.Name,
             Description: req.body.Description,
             AllottedTime: req.body.AllottedTime,
+            Status: req.body.Status,
             createdDate: new Date().toDateString(),
             updatedDate: new Date().toDateString()
         });
@@ -30,12 +31,12 @@ exports.AddTask = function (req, res) {
 
 
 
-exports.GetAllTask = function(req, res) {
+exports.GetAllTask = function (req, res) {
 
 
     Task
         .find()
-        .exec(function(err, Task) {
+        .exec(function (err, Task) {
             if (err) {
                 res.send(err);
             }

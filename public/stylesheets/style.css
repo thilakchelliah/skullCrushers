@@ -331,7 +331,6 @@ a.scrollup:hover {
   }
   .main .view {
     position: relative;
-    margin-left: 200px;
   }
   .main .view .viewHeader {
     width: 100%;
@@ -381,7 +380,7 @@ a.scrollup:hover {
     padding-right: 16px;
   }
   .main .view .content {
-    position: absolute;
+  
     left: 0px;
     top: 70px;
     right: 0px;

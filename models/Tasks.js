@@ -9,6 +9,9 @@ var TaskSchema = new mongoose.Schema({
     AllottedTime: {
         type: String
     },
+    Status: {
+        type: String
+    },
     createdDate:{
          type: Date,
          required: true,

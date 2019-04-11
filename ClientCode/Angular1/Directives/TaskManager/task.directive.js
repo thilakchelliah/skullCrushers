@@ -8,10 +8,11 @@ DMApp.directive('taskDirective', ['$localStorage', function ($localStorage) {
             $scope.TaskList = [];
             var init = function () {
                 $scope.create = false;
+                debugger;
                 DMService.GetTaskList().then(
                     function (response) {
                         $scope.loaded = true;
-                        $scope.TaskList = response.result;
+                        $scope.TaskList = response.data;
                         // debugger;
                     },
                     function () {
@@ -21,9 +22,24 @@ DMApp.directive('taskDirective', ['$localStorage', function ($localStorage) {
 
 
             init();
-            $scope.openTutorial = function (id) {
-                debugger;
+            $scope.addTask = function () {
+                var taskObj = {
+                    Name: $scope.Name,
+                    Description: $scope.Description,
+                    AllottedTime: $scope.AllottedTime,
+                    Status:"In Progress"
+                }
+                
+                DMService.AddTask(taskObj).then(
+                    function (response) {
+                        $('#exampleModalLong').modal('hide')
+                        
+                    },
+                    function () {
+                        $('#exampleModalLong').modal('hide')
+                    });
             }
+
 
         }]
     };
