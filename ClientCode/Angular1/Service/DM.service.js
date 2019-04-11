@@ -15,11 +15,17 @@ DMApp.service('DMService', ['$http', function ($http) {
     var _listEvents = function () {
         return $http.get('api/mail/listMeetings');
     }
+    var _getTaskList = function () {
+        return $http.get('api/task/GetAllTask');
+    }
+    
+    
 
     DMService.GetMailList = _getMailList;
     DMService.GetMailListPlain = _getMailListPlain;
     DMService.ToneAnalyse = _toneAnalyse;
     DMService.ListEvents = _listEvents
+    DMService.GetTaskList = _getTaskList
 
     return DMService;
 }]);

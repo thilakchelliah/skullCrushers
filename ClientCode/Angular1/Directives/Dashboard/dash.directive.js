@@ -9,35 +9,36 @@ DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
             $scope.indMessaArray = [];
             $scope.meetingNum = 0;
             var init = function () {
-                
+
                 DMService.ListEvents().then(
-                    function(response){
+                    function (response) {
                         debugger;
-                        $scope.meetingNum=response.data.value.length;
+                        $scope.meetingNum = response.data.value.length;
                     },
-                    function(err){
+                    function (err) {
 
                     });
                 DMService.GetMailList().then(
                     function (response) {
-                        
+
                         $scope.message = response.data.messages;
                         $scope.loaded = true;
                         // console.log($scope.message);
                         var messLength = 0
                         $.each($scope.message, function (key, value) {
                             let toneParams = {
-                                tone_input: value.body.content,
+                                tone_input: value.body.content + value.subject,
                                 content_type: 'text/plain'
                             };
                             DMService.ToneAnalyse(toneParams).then(
                                 function (tonResp) {
-                                    $scope.indMessaArray.push({ emailId: value.id,message:value.body.content, result: tonResp.data });
+                                    $scope.indMessaArray.push({ emailId: value.id, message: value.body.content + value.subject, result: tonResp.data });
                                     messLength = messLength + 1;
                                     if (messLength == $scope.message.length) {
                                         $scope.pieChartGenerator();
+                                        console.log($scope.indMessaArray)
                                     }
-                                    // console.log(tonResp)
+                                     
                                 },
                                 function (err) {
 
@@ -132,7 +133,7 @@ DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
                         otherCnt = otherCnt + 1;
                     }
                 });
-                
+
                 new Chart(document.getElementById("chartjs-4"), {
                     "type": "doughnut",
                     "data": {

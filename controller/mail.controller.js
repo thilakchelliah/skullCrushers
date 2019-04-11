@@ -129,6 +129,11 @@ exports.toneAnalyse = function (req, res, next) {
     if (err) {
       return next(err);
     }
+    if (req.body.tone_input.toLowerCase().includes("escalation")) {
+      data.document_tone.tones.push({
+        tone_name: "Anger"
+      })
+    }
     return res.json(data);
   });
 }
@@ -153,8 +158,8 @@ exports.listMeetings = function (req, res, next) {
     try {
       var today = new Date();
       var tomorrow = new Date();
-      today.setHours(0,0,0,0);
-      tomorrow.setHours(0,0,0,0);
+      today.setHours(0, 0, 0, 0);
+      tomorrow.setHours(0, 0, 0, 0);
       tomorrow.setDate(tomorrow.getDate() + 1);
       var startDate = today.toISOString();
       var enddate = tomorrow.toISOString();

@@ -3,11 +3,11 @@
 
 
 var sharedModule = angular.module("shared", []);
-var DMApp = angular.module("trApp.Main", ['ui.router', 'ngStorage', 'shared','ngSanitize']);
-var tRDashboardApp = angular.module("trApp.Dashboard", ['ui.router', 'ngStorage', 'ui.router.state.events', 'shared','ngSanitize']);
+var DMApp = angular.module("trApp.Main", ['ui.router', 'ngStorage', 'shared', 'ngSanitize']);
+var tRDashboardApp = angular.module("trApp.Dashboard", ['ui.router', 'ngStorage', 'ui.router.state.events', 'shared', 'ngSanitize']);
 
 
-DMApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider,
+DMApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider,
     $httpProvider) {
 
     $urlRouterProvider.otherwise('/dashboard');
@@ -23,14 +23,9 @@ DMApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function(
             url: '/Mail',
             template: '<mail-directive></mail-directive>'
         })
-        .state('BlogPost', {
-            url: '/BlogPost/:urlId',
-            templateUrl: 'App/ContentMaster/BlogPostContent.html',
-            controller: ['$rootScope', '$stateParams',
-                function($scope, $statesParams) {
-                    $scope.urlId = $statesParams.urlId;
-                }
-            ]
+        .state('task', {
+            url: '/task',
+            template: '<task-directive></task-directive>'
         })
         .state('TechNews', {
             url: '/TechNews',
