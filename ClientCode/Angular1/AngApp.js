@@ -27,6 +27,10 @@ DMApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function 
             url: '/task',
             template: '<task-directive></task-directive>'
         })
+        .state('car', {
+            url: '/car',
+            template: '<car-directive></car-directive>'
+        })
         .state('TechNews', {
             url: '/TechNews',
             templateUrl: 'Angular1/Directives/tech_news.html'

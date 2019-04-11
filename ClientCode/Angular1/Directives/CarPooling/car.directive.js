@@ -1,5 +1,5 @@
 
-DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
+DMApp.directive('carDirective', ['$localStorage', function ($localStorage) {
     return {
         restrict: 'E',
         templateUrl: 'Angular1/Directives/Dashboard/dash.html',
