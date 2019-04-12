@@ -79,7 +79,7 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                 $scope.AllottedTime = "Low";
                 $scope.Group = "DataHub";
                 $scope.AssignedTo = "skullkrushers07@outlook.com";
-                $scope.selfc == false;
+                $scope.selfc = false;
             }
             $scope.as_self = function () {
                 if ($scope.selfc == false) {

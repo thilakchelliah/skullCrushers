@@ -42,7 +42,7 @@ DMApp.directive('taskDirective', ['$localStorage', function ($localStorage) {
                 $scope.Name = "";
                 $scope.Description = "";
                 $scope.AssignedTo = "";
-                $scope.selfc == false
+                $scope.selfc = false
                 $scope.isupdate = false;
             } 
             $scope.addTask = function () {

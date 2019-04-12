@@ -1,3 +1,8 @@
+<style>
+    .carbg{
+        background-color: #efeeee !important;
+    }
+</style>
 <div class="container" style="margin-top:20px;">
 
     <div class="row">
@@ -15,7 +20,37 @@
                     </div>
                 </div>
                 <div class="content">
-                    <table class="table table-hover">
+                    <div class="row">
+                        <div class="col-sm-6" ng-repeat="task in TaskList">
+                            <div class="card" ng-class="{carbg: task.AssignedTo == 'skullkrushers07@outlook.com'}">
+                                <div class="card-body" ng-click="update(task)" data-toggle="modal" data-target="#exampleModalLong">
+                                    <h5 style="border-bottom: 1px solid gray;padding-bottom: 4px;" class="card-title">{{task.Name}}</h5>
+                                    <p style= "height: 52px;overflow: hidden;" class="card-text">{{task.Description}}</p>
+                                    <div><b>Assigned By:</b> {{task.AssignedBy}}</div>
+                                    <div style="margin-bottom:5px;"><b>Assigned To:</b> {{task.AssignedTo}}</div>
+                                    <div style="float:left;margin-right:10px;">
+                                        <button type="button" ng-if="task.Status === 'Pending'"
+                                            class="btn btn-danger btn-sm btl ctag">{{task.Status}}</button>
+                                        <button type="button" ng-if="task.Status === 'InProgress'"
+                                            class="btn btn-warning btn-sm btl ctag">{{task.Status}}</button>
+                                        <button type="button" ng-if="task.Status === 'Completed'"
+                                            class="btn btn-success btn-sm btl ctag">{{task.Status}}</button>
+                                    </div>
+                                    <div style="float:left;margin-right:10px;">
+                                        <button type="button" ng-if="task.AllottedTime === 'High'"
+                                            class="btn btn-danger btn-sm btl ctag">{{task.AllottedTime}} Priority</button>
+                                        <button type="button" ng-if="task.AllottedTime === 'Medium'"
+                                            class="btn btn-warning btn-sm btl ctag">{{task.AllottedTime}} Priority</button>
+                                        <button type="button" ng-if="task.AllottedTime === 'Low'"
+                                            class="btn btn-primary btn-sm btl ctag">{{task.AllottedTime}} Priority</button>
+                                    </div>
+                                    <!-- <p class="card-text">{{task.Status}}</p> -->
+                                    <!-- <p class="card-text">{{task.AllottedTime}}</p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>
@@ -33,9 +68,7 @@
                             </tr>
 
                         </tbody>
-                    </table>
-
-
+                    </table> -->
                 </div>
             </div>
         </div>
@@ -54,7 +87,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button> -->
                 <div>
-                    <button ng-if="isupdate != true" type="button" class="btn btn-primary" ng-click="addTask()">Add
+                    <button ng-if="isupdate != true" type="button" class="btn btn-success" ng-click="addTask()">Add
                         Task</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
