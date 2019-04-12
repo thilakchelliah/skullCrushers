@@ -24,7 +24,10 @@
                         <div class="col-sm-6" ng-repeat="task in TaskList">
                             <div class="card" ng-class="{carbg: task.AssignedTo == 'skullkrushers07@outlook.com'}">
                                 <div class="card-body" ng-click="update(task)" data-toggle="modal" data-target="#exampleModalLong">
-                                    <h5 style="border-bottom: 1px solid gray;padding-bottom: 4px;" class="card-title">{{task.Name}}</h5>
+                                    <h5 style="border-bottom: 1px solid gray;padding-bottom: 4px;" class="card-title">
+                                        {{task.Name}}
+                                        <div class="btn btn-info btn-sm " style="float:right;margin-top: -10px;">{{task.Group}}</div>
+                                    </h5>
                                     <p style= "height: 52px;overflow: hidden;" class="card-text">{{task.Description}}</p>
                                     <div><b>Assigned By:</b> {{task.AssignedBy}}</div>
                                     <div style="margin-bottom:5px;"><b>Assigned To:</b> {{task.AssignedTo}}</div>

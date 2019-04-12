@@ -21,7 +21,22 @@ DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
                 DMService.GetTaskList().then(
                     function (response) {
                         $scope.TaskList = response.data;
-                        debugger;
+                        $scope.totalTask = $scope.TaskList.length;
+                        $scope.assigned_to_me = $.grep($scope.TaskList, function (v) {
+                            return v.AssignedTo === "skullkrushers07@outlook.com";
+                        }).length;
+                        $scope.assigned_by_me = $.grep($scope.TaskList, function (v) {
+                            return v.AssignedBy === "skullkrushers07@outlook.com";
+                        }).length;
+                        $scope.PendingCnt = $.grep($scope.TaskList, function (v) {
+                            return v.Status === "Pending";
+                        }).length;
+                        $scope.InProgressCnt = $.grep($scope.TaskList, function (v) {
+                            return v.Status === "InProgress";
+                        }).length;
+                        $scope.CompletedCnt = $.grep($scope.TaskList, function (v) {
+                            return v.Status === "Completed";
+                        }).length;
                         $scope.TaskbarChartGenerator();
                     },
                     function () {
@@ -169,26 +184,18 @@ DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
             }
 
             $scope.TaskbarChartGenerator = function () {
-                $scope.TaskList
-                var CompletedCount = $.grep($scope.TaskList, function (v) {
-                    return v.Status === "Completed";
-                }).length;
-                var PendingCount = $.grep($scope.TaskList, function (v) {
-                    return v.Status === "Pending";
-                }).length;
-                var InProgressCount = $.grep($scope.TaskList, function (v) {
-                    return v.Status === "In Progress";
-                }).length;
+                // $scope.TaskList
+
                 new Chart(document.getElementById("TaskManBar"), {
                     "type": "line",
                     "data": {
-                        "labels": ["Completed", "Pending", "In progress"],
+                        "labels": ["Completed", "In Progress", "Pending"],
                         "datasets": [{
                             "label": "Task Details",
-                            "data": [CompletedCount, PendingCount, InProgressCount],
-                            "fill":false,
-                            "lineTension":0.1,
-                            "borderColor":"rgb(75, 192, 192)"
+                            "data": [$scope.CompletedCnt, $scope.InProgressCnt, $scope.PendingCnt],
+                            "fill": false,
+                            "lineTension": 0.1,
+                            "borderColor": "rgb(75, 192, 192)"
                         }]
                     }
                 });
