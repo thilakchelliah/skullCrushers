@@ -21,22 +21,41 @@ DMApp.directive('dashDirective', ['$localStorage', function ($localStorage) {
                 DMService.GetTaskList().then(
                     function (response) {
                         $scope.TaskList = response.data;
+                        console.log($scope.TaskList)
                         $scope.totalTask = $scope.TaskList.length;
                         $scope.assigned_to_me = $.grep($scope.TaskList, function (v) {
                             return v.AssignedTo === "skullkrushers07@outlook.com";
-                        }).length;
-                        $scope.assigned_by_me = $.grep($scope.TaskList, function (v) {
-                            return v.AssignedBy === "skullkrushers07@outlook.com";
-                        }).length;
-                        $scope.PendingCnt = $.grep($scope.TaskList, function (v) {
+                        });
+                        $scope.indata = $.grep($scope.TaskList, function (v) {
+                            return v.Group === "DataHub";
+                        });
+                        $scope.infcm = $.grep($scope.TaskList, function (v) {
+                            return v.Group === "FCM";
+                        });
+                        $scope.Pendingval = $.grep($scope.TaskList, function (v) {
+                            debugger;
                             return v.Status === "Pending";
-                        }).length;
-                        $scope.InProgressCnt = $.grep($scope.TaskList, function (v) {
+                        });
+                        $scope.InProgressval = $.grep($scope.TaskList, function (v) {
                             return v.Status === "InProgress";
-                        }).length;
-                        $scope.CompletedCnt = $.grep($scope.TaskList, function (v) {
+                        });
+                        $scope.Completedval = $.grep($scope.TaskList, function (v) {
                             return v.Status === "Completed";
-                        }).length;
+                        });
+                        $scope.assignedCnt = $scope.assigned_to_me.length;
+                        $scope.indataCnt = $scope.indata.length;
+                        $scope.infcmCnt = $scope.infcm.length;
+                        $scope.PendingCnt = $scope.Pendingval.length;
+                        $scope.InProgressCnt = $scope.InProgressval.length;
+                        $scope.CompletedCnt = $scope.Completedval.length;
+                        // alert($scope.CompletedCnt+" "+ $scope.PendingCnt+" "+$scope.InProgressCnt)
+                        $scope.comPer = (($scope.CompletedCnt/$scope.totalTask)*100).toFixed(0)+"%";
+                        $scope.penPer = (($scope.PendingCnt/$scope.totalTask)*100).toFixed(0)+"%";
+                        $scope.inpPer = (($scope.InProgressCnt/$scope.totalTask)*100).toFixed(0)+"%";
+                        // alert($scope.comPer+" "+$scope.penPer+" "+$scope.inpPer);
+                        $scope.assignedPer = (($scope.assignedCnt/$scope.totalTask)*100).toFixed(0)+"%";
+                        $scope.indataPer = (($scope.indataCnt/$scope.totalTask)*100).toFixed(0)+"%";
+                        $scope.infcmPer = (($scope.infcmCnt/$scope.totalTask)*100).toFixed(0)+"%";
                         $scope.TaskbarChartGenerator();
                     },
                     function () {

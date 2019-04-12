@@ -76,26 +76,44 @@
         <div class="col-md-3">
             <div class="card1">
                 <div class="card1-block">
-                    <h4 class="card1-title font-weight-normal text-success">Tasks</h4>
-                    <p class="card1-text">Completed</p>
+                    <h4 class="card1-title font-weight-normal text-success">Task Status</h4>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%"
-                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                        <div data-toggle="tooltip" data-placement="top" title="Pending" class="progress-bar bg-danger"
+                            role="progressbar" ng-style="{ 'width' : penPer }" aria-valuenow="15" aria-valuemin="0"
+                            aria-valuemax="100">{{penPer}}</div>
+                        <div data-toggle="tooltip" data-placement="top" title="In Progress"
+                            class="progress-bar bg-warning" role="progressbar" ng-style="{ 'width' : inpPer }"
+                            aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">{{inpPer}}</div>
+                        <div data-toggle="tooltip" data-placement="top" title="Completed"
+                            class="progress-bar bg-success" role="progressbar" ng-style="{ 'width' : comPer }"
+                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">{{comPer}}</div>
                     </div>
                 </div>
             </div>
             <div class="card1">
                 <div class="card1-block">
-                    <h4 class="card1-title font-weight-normal text-success">Meetings</h4>
-                    <p class="card1-text">Coverage</p>
+                    <h4 class="card1-title font-weight-normal text-success">My Task</h4>
+                    <p>Task assigned to me</p>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 75%"
-                            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                            ng-style="{ 'width' : assignedPer }" aria-valuenow="75" aria-valuemin="0"
+                            aria-valuemax="100">{{assignedPer}}</div>
                     </div>
                 </div>
             </div>
-           
-
+            <div class="card1">
+                <div class="card1-block">
+                    <h4 class="card1-title font-weight-normal text-success">Task by Project</h4>
+                    <div class="progress">
+                        <div data-toggle="tooltip" data-placement="top" title="Data Hub" class="progress-bar bg-info"
+                            role="progressbar" ng-style="{ 'width' : indataPer }" aria-valuenow="15" aria-valuemin="0"
+                            aria-valuemax="100">{{indataPer}}</div>
+                        <div data-toggle="tooltip" data-placement="top" title="FCM"
+                            class="progress-bar bg-primary" role="progressbar" ng-style="{ 'width' : infcmPer }"
+                            aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">{{infcmPer}}</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Content here -->
@@ -129,3 +147,10 @@
     </div>
 
 </div>
+
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
