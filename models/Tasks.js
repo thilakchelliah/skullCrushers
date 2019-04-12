@@ -12,6 +12,12 @@ var TaskSchema = new mongoose.Schema({
     Status: {
         type: String
     },
+    AssignedBy: {
+        type: String
+    },
+    AssignedTo: {
+        type: String
+    },
     createdDate:{
          type: Date,
          required: true,

@@ -1,10 +1,11 @@
 var mongoose = require('mongoose'),
     Task = mongoose.model('Task');
-
+    
 exports.AddTask = function (req, res) {
     if (!req.body.Name) {
         res.status(400).send({ message: "Name cannot be Empty" });
     }
+
     // else {
 
     //     Task.find({"Name": req.body.Name}, (err, Task) => {
@@ -32,6 +33,8 @@ exports.AddTask = function (req, res) {
                         Description: req.body.Description,
                         AllottedTime: req.body.AllottedTime,
                         Status: req.body.Status,
+                        AssignedBy:"skullkrushers07@outlook.com",
+                        AssignedTo:req.body.AssignedTo,
                         createdDate: new Date().toDateString(),
                         updatedDate: new Date().toDateString()
                     });
@@ -55,10 +58,7 @@ exports.AddTask = function (req, res) {
 
 
 
-
 exports.GetAllTask = function (req, res) {
-
-
     Task
         .find()
         .exec(function (err, Task) {

@@ -111,7 +111,8 @@
                 </div>
             </div>
             <div class="col-md-2" style="float:right;text-align:right">
-                <button ng-click="loadTask(sub,mailraw)" data-toggle="modal" data-target="#exampleModalLong" type="button" class="btn btn-primary">Add as a Task</button>
+                <button ng-click="loadTask(sub,mailraw)" data-toggle="modal" data-target="#exampleModalLong"
+                    type="button" class="btn btn-primary">Add as a Task</button>
             </div>
         </div>
         <div class="col-md-12" style="float:left;font-size:12px;padding-top:8px;padding-bottom:10px">
@@ -231,40 +232,53 @@
 </div> -->
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Add Task</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Add Task</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
 
-                <div class="form-group">
-                    <label>Name</label>
-                    <input class="form-control" id="name" ng-model="Name">
-                </div>
-                <div class="form-group">
-                    <label>Description</label>
-                    <textarea class="form-control" id="Description" ng-model="Description" style="min-height:200px;"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Priority</label>
-                    <input class="form-control" id="allotedTime" ng-model="AllottedTime">
-                </div>
-                <div class="form-group">
-                        <label>Status</label>
-                        <input class="form-control" id="status" ng-model="Status">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input class="form-control" id="name" ng-model="Name">
                     </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" ng-click="addTask()">Add Task</button>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" id="Description" ng-model="Description"
+                            style="min-height:200px;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <input class="form-control" id="allotedTime" ng-model="AllottedTime">
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <input class="form-control" id="status" ng-model="Status" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Self Assign</label>
+                        <input type="checkbox" ng-model="self" aria-label="Checkbox for self Assign">
+                    </div>
+                    <div class="form-group" ng-if="self == true" ng-init="AssignedTo = 'skullkrushers07@outlook.com'">
+                        <label>Assign To</label>
+                        <input class="form-control" id="status" ng-model="AssignedTo" disabled>
+                    </div>
+                    <div class="form-group" ng-if="self != true">
+                        <label>Assign To</label>
+                        <input class="form-control" id="status" ng-model="AssignedTo">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="addTask()">Add Task</button>
+                </div>
             </div>
         </div>
     </div>
-</div>

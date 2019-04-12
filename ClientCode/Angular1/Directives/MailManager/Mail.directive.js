@@ -12,6 +12,7 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                 $scope.emarray = [];
                 $scope.frm = {};
                 $scope.create = false;
+                $scope.selfc == false;
                 DMService.GetMailList().then(
                     function (response) {
                         // debugger;
@@ -24,7 +25,7 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                         // $scope.mailcontent = $sce.trustAsHtml($scope.message[1].body.content);
                         $scope.sub = $scope.message[0].subject;
                         $scope.from = $scope.message[0].from.emailAddress.name;
-                        
+
                         $scope.from_email = $scope.message[0].from.emailAddress.address;
                         $scope.to = $scope.message[0].toRecipients;
                         $scope.mailraw = $scope.message[0].body.content;
@@ -33,13 +34,13 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
 
                         console.log($scope.message[0]);
                         $.each($scope.message, function (key1, value1) {
-                                let toneParams = {
-                                    tone_input: value1.body.content + " " + value1.subject,
-                                    content_type: 'text/plain'
-                                };
+                            let toneParams = {
+                                tone_input: value1.body.content + " " + value1.subject,
+                                content_type: 'text/plain'
+                            };
                             DMService.ToneAnalyse(toneParams).then(
                                 function (tonResp) {
-                                    var temp_array = [];             
+                                    var temp_array = [];
                                     $.each(tonResp.data.document_tone.tones, function (key, value) {
                                         if (value.tone_name === "fear") {
                                             temp_array.indexOf("Sadness") === -1 ? temp_array.push("Sadness") : console.log("Sadness already exists");
@@ -48,7 +49,7 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                                         } else {
                                             temp_array.indexOf(value.tone_name) === -1 ? temp_array.push(value.tone_name) : console.log(value.tone_name + " already exists");
                                         }
-                                    });                       
+                                    });
                                     $scope.message[key1].result = temp_array;
                                 },
                                 function (err) {
@@ -62,27 +63,58 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                     function (err) {
 
                     });
+
+                DMService.GetTaskList().then(
+                    function (response) {
+                        $scope.loaded = true;
+                        $scope.TaskList = response.data;
+                    },
+                    function () {
+
+                    });
             }
-            $scope.loadTask = function(a,b){
+            $scope.loadTask = function (a, b) {
                 $scope.Name = a;
                 $scope.Description = b;
+                $scope.Status = "Pending";
+            }
+            $scope.as_self = function () {
+                if ($scope.selfc == false) {
+                    $scope.selfc == true;
+                    $scope.AssignedTo = "skullkrushers07@outlook.com";
+                } else {
+                    $scope.selfc == false;
+                    $scope.AssignedTo = "";
+                }
+            }
+            $scope.chec= function(a){
+                return $.grep($scope.TaskList, function (v) {
+                    return v.Description === a;
+                }).length
             }
             $scope.addTask = function () {
                 var taskObj = {
                     Name: $scope.Name,
                     Description: $scope.Description,
                     AllottedTime: $scope.AllottedTime,
-                    Status:$scope.Status
+                    AssignedTo: $scope.AssignedTo,
+                    Status: $scope.Status
                 }
-                
+                var isthere = $scope.chec($scope.Description);
+                if(isthere > 0){
+                    alert("The Task has been already assigned");
+                }else{
                 DMService.AddTask(taskObj).then(
                     function (response) {
+                        $scope.TaskList.push({Name:$scope.Name,Description: $scope.Description})
                         $('#exampleModalLong').modal('hide')
-                        
+
                     },
-                    function () {
+                    function (err) {
+                        alert("This task has beed assigned already");
                         $('#exampleModalLong').modal('hide')
                     });
+                }
             }
             $scope.create_click = function () {
                 $scope.create = true;
@@ -93,6 +125,7 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
             }
             $scope.discard = function () {
                 $scope.create = false;
+                init();
             }
             $scope.check_stat = function () {
                 console.log($scope.emarray);

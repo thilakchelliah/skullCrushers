@@ -8,7 +8,7 @@
                 <div class="viewHeader">
                     <div class="title">Manage Tasks</div>
                     <div class="functions">
-                        <div class="button active " data-toggle="modal" data-target="#exampleModalLong">Add New Task
+                        <div class="button active" ng-click="adClick()" data-toggle="modal" data-target="#exampleModalLong">Add New Task
                         </div>
 
                     </div>
@@ -47,7 +47,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Add Task</h5>
+                <h5 ng-if="isupdate != true" class="modal-title" id="exampleModalLongTitle">Add Task</h5>
+                <h5 ng-if="isupdate == true" class="modal-title" id="exampleModalLongTitle">View Task</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -60,7 +61,7 @@
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <input class="form-control" id="Description" ng-model="Description">
+                    <textarea class="form-control" id="Description" ng-model="Description"></textarea>
                 </div>
                 <div class="form-group">
                     <label>Priority</label>
@@ -70,10 +71,18 @@
                     <label>Status</label>
                     <input class="form-control" id="status" ng-model="Status">
                 </div>
+                <div class="form-group" ng-view="isupdate != true">
+                    <label>Self Assign</label>
+                    <input type="checkbox" id="selfc" ng-click="as_self()" ng-model="selfc" aria-label="Checkbox for self Assign">
+                </div>
+                <div class="form-group">
+                    <label>Assign To</label>
+                    <input class="form-control" id="AssignedTo" ng-model="AssignedTo" ng-disabled="selfc">
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" ng-click="addTask()">Add Task</button>
+                <button ng-if="isupdate != true" type="button" class="btn btn-primary" ng-click="addTask()">Add Task</button>
             </div>
         </div>
     </div>
