@@ -239,9 +239,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Add Task</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" ng-click="addTask()">Add Task</button>
+                    </div>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button>
+                    </button> -->
                 </div>
                 <div class="modal-body">
 
@@ -256,29 +260,44 @@
                     </div>
                     <div class="form-group">
                         <label>Priority</label>
-                        <input class="form-control" id="allotedTime" ng-model="AllottedTime">
+                        <!-- <input class="form-control" id="allotedTime" ng-model="AllottedTime"> -->
+                        <select class="form-control" id="allotedTime" ng-model="AllottedTime">
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Status</label>
-                        <input class="form-control" id="status" ng-model="Status" disabled>
+                        <!-- <input class="form-control" id="status" ng-model="Status" disabled> -->
+                        <select class="form-control" id="status" ng-model="Status">
+                            <option value="Pending">Pending</option>
+                            <option value="InProgress">InProgress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label>Self Assign</label>
-                        <input type="checkbox" ng-model="self" aria-label="Checkbox for self Assign">
+                        <label>Group</label>
+                        <!-- <input class="form-control" id="status" ng-model="Status" disabled> -->
+                        <select class="form-control" id="group" ng-model="Group">
+                            <option value="DataHub">Data Hub</option>
+                            <option value="FCM">FCM</option>
+                        </select>
                     </div>
-                    <div class="form-group" ng-if="self == true" ng-init="AssignedTo = 'skullkrushers07@outlook.com'">
-                        <label>Assign To</label>
-                        <input class="form-control" id="status" ng-model="AssignedTo" disabled>
-                    </div>
-                    <div class="form-group" ng-if="self != true">
-                        <label>Assign To</label>
-                        <input class="form-control" id="status" ng-model="AssignedTo">
-                    </div>
+                    <div class="form-group" >
+                            <label>Self Assign</label>
+                            <input type="checkbox" id="selfc" ng-click="as_self()" ng-model="selfc"
+                                aria-label="Checkbox for self Assign">
+                        </div>
+                        <div class="form-group">
+                            <label>Assign To</label>
+                            <input class="form-control" id="AssignedTo" ng-model="AssignedTo" ng-disabled="selfc">
+                        </div>
                 </div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" ng-click="addTask()">Add Task</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

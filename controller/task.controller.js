@@ -35,6 +35,7 @@ exports.AddTask = function (req, res) {
                         Status: req.body.Status,
                         AssignedBy:"skullkrushers07@outlook.com",
                         AssignedTo:req.body.AssignedTo,
+                        Group:req.body.Group,
                         createdDate: new Date().toDateString(),
                         updatedDate: new Date().toDateString()
                     });

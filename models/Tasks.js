@@ -18,6 +18,9 @@ var TaskSchema = new mongoose.Schema({
     AssignedTo: {
         type: String
     },
+    Group :{
+        type:String
+    },
     createdDate:{
          type: Date,
          required: true,

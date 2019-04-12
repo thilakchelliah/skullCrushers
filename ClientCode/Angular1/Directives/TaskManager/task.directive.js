@@ -28,14 +28,21 @@ DMApp.directive('taskDirective', ['$localStorage', function ($localStorage) {
             init();
             $scope.as_self = function(){
                 if($scope.selfc == false){
-                    $scope.selfc == true;
+                    $scope.selfc = true;
                     $scope.AssignedTo = "skullkrushers07@outlook.com";
                 }else{
-                    $scope.selfc == false;
+                    $scope.selfc = false;
                     $scope.AssignedTo = "";
                 }
             }
             $scope.adClick = function(){
+                $scope.Status = "Pending";
+                $scope.AllottedTime = "Low";
+                $scope.Group = "DataHub";
+                $scope.Name = "";
+                $scope.Description = "";
+                $scope.AssignedTo = "";
+                $scope.selfc == false
                 $scope.isupdate = false;
             } 
             $scope.addTask = function () {
@@ -45,6 +52,7 @@ DMApp.directive('taskDirective', ['$localStorage', function ($localStorage) {
                     Description: $scope.Description,
                     AllottedTime: $scope.AllottedTime,
                     AssignedTo:$scope.AssignedTo,
+                    Group:$scope.Group,
                     Status:$scope.Status
                 }
                 var isthere = $scope.chec($scope.Description);
@@ -70,6 +78,7 @@ DMApp.directive('taskDirective', ['$localStorage', function ($localStorage) {
                 $scope.Status = task.Status;
                 $scope.AssignedBy = task.AssignedBy;
                 $scope.AssignedTo = task.AssignedTo;
+                $scope.Group = task.Group
             }
 
 

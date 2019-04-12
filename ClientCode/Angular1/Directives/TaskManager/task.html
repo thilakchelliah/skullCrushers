@@ -8,7 +8,8 @@
                 <div class="viewHeader">
                     <div class="title">Manage Tasks</div>
                     <div class="functions">
-                        <div class="button active" ng-click="adClick()" data-toggle="modal" data-target="#exampleModalLong">Add New Task
+                        <div class="button active" ng-click="adClick()" data-toggle="modal"
+                            data-target="#exampleModalLong">Add New Task
                         </div>
 
                     </div>
@@ -49,9 +50,14 @@
             <div class="modal-header">
                 <h5 ng-if="isupdate != true" class="modal-title" id="exampleModalLongTitle">Add Task</h5>
                 <h5 ng-if="isupdate == true" class="modal-title" id="exampleModalLongTitle">View Task</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                </button> -->
+                <div>
+                    <button ng-if="isupdate != true" type="button" class="btn btn-primary" ng-click="addTask()">Add
+                        Task</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
             </div>
             <div class="modal-body">
 
@@ -65,25 +71,45 @@
                 </div>
                 <div class="form-group">
                     <label>Priority</label>
-                    <input class="form-control" id="allotedTime" ng-model="AllottedTime">
+                    <select class="form-control" id="allotedTime" ng-model="AllottedTime">
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                    <!-- <input class="form-control" id="allotedTime" ng-model="AllottedTime"> -->
                 </div>
                 <div class="form-group">
                     <label>Status</label>
-                    <input class="form-control" id="status" ng-model="Status">
+                    <select class="form-control" id="status" ng-model="Status">
+                        <option value="Pending">Pending</option>
+                        <option value="InProgress">InProgress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                    <!-- <input class="form-control" id="status" ng-model="Status"> -->
                 </div>
-                <div class="form-group" ng-view="isupdate != true">
+                <div class="form-group">
+                    <label>Group</label>
+                    <!-- <input class="form-control" id="status" ng-model="Status" disabled> -->
+                    <select class="form-control" id="group" ng-model="Group">
+                        <option value="DataHub">Data Hub</option>
+                        <option value="FCM">FCM</option>
+                    </select>
+                </div>
+                <div class="form-group" ng-hide="isupdate == true">
                     <label>Self Assign</label>
-                    <input type="checkbox" id="selfc" ng-click="as_self()" ng-model="selfc" aria-label="Checkbox for self Assign">
+                    <input type="checkbox" id="selfc" ng-click="as_self()" ng-model="selfc"
+                        aria-label="Checkbox for self Assign">
                 </div>
                 <div class="form-group">
                     <label>Assign To</label>
                     <input class="form-control" id="AssignedTo" ng-model="AssignedTo" ng-disabled="selfc">
                 </div>
             </div>
-            <div class="modal-footer">
+            <!-- <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button ng-if="isupdate != true" type="button" class="btn btn-primary" ng-click="addTask()">Add Task</button>
-            </div>
+                <button ng-if="isupdate != true" type="button" class="btn btn-primary" ng-click="addTask()">Add
+                    Task</button>
+            </div> -->
         </div>
     </div>
 </div>

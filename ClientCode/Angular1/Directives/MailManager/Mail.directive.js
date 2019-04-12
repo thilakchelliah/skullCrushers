@@ -12,7 +12,6 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                 $scope.emarray = [];
                 $scope.frm = {};
                 $scope.create = false;
-                $scope.selfc == false;
                 DMService.GetMailList().then(
                     function (response) {
                         // debugger;
@@ -77,13 +76,17 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                 $scope.Name = a;
                 $scope.Description = b;
                 $scope.Status = "Pending";
+                $scope.AllottedTime = "Low";
+                $scope.Group = "DataHub";
+                $scope.AssignedTo = "skullkrushers07@outlook.com";
+                $scope.selfc == false;
             }
             $scope.as_self = function () {
                 if ($scope.selfc == false) {
-                    $scope.selfc == true;
                     $scope.AssignedTo = "skullkrushers07@outlook.com";
+                    $scope.selfc = true;
                 } else {
-                    $scope.selfc == false;
+                    $scope.selfc = false;
                     $scope.AssignedTo = "";
                 }
             }
@@ -93,11 +96,13 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                 }).length
             }
             $scope.addTask = function () {
+                alert($scope.AssignedTo);
                 var taskObj = {
                     Name: $scope.Name,
                     Description: $scope.Description,
                     AllottedTime: $scope.AllottedTime,
                     AssignedTo: $scope.AssignedTo,
+                    Group:$scope.Group,
                     Status: $scope.Status
                 }
                 var isthere = $scope.chec($scope.Description);
