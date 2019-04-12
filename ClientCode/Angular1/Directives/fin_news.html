@@ -1,7 +1,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-sm-offset-1 col-sm-10">
+		<div class="col-sm-12">
 			<h2 class="pgwTitl" >Financial News</h2>
 			<div class="event-list">
 
@@ -14,7 +14,7 @@
 
 <script>
 	$(document).ready(function () {
-		$.getJSON("https://newsapi.org/v2/top-headlines?sources=financial-times&apiKey=6b203ed2d80f45d99da83adb316ab67e", function (result) {
+		$.getJSON("https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=6b203ed2d80f45d99da83adb316ab67e", function (result) {
 			$.each(result.articles, function (i, field) {
 				if (field.description == null || field.description == "null") {
 					field.description = "";
