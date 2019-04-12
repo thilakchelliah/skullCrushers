@@ -96,7 +96,7 @@ DMApp.directive('mailDirective', ['$localStorage', function ($localStorage) {
                 }).length
             }
             $scope.addTask = function () {
-                alert($scope.AssignedTo);
+                // alert($scope.AssignedTo);
                 var taskObj = {
                     Name: $scope.Name,
                     Description: $scope.Description,

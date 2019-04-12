@@ -129,7 +129,14 @@ exports.toneAnalyse = function (req, res, next) {
     if (err) {
       return next(err);
     }
-    if (req.body.tone_input.toLowerCase().includes("escalation")) {
+    if (req.body.tone_input.toLowerCase().includes("escalation")||
+    req.body.tone_input.toLowerCase().includes("breathing fire") ||
+    req.body.tone_input.toLowerCase().includes("sick to your stomach")||
+    req.body.tone_input.toLowerCase().includes("hopping mad") ||
+    req.body.tone_input.toLowerCase().includes("keep on") ||
+    req.body.tone_input.toLowerCase().includes("reject") ||
+    req.body.tone_input.toLowerCase().includes("rejecting")   
+    ) {
       data.document_tone.tones = [{
         tone_name: "Anger"
       }]

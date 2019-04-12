@@ -21,7 +21,7 @@
                 </div>
                 <div class="content">
                     <div class="row">
-                        <div class="col-sm-6" ng-repeat="task in TaskList">
+                        <div class="col-sm-6" ng-repeat="task in TaskList" style="margin-bottom: 15px">
                             <div class="card" ng-class="{carbg: task.AssignedTo == 'skullkrushers07@outlook.com'}">
                                 <div class="card-body" ng-click="update(task)" data-toggle="modal" data-target="#exampleModalLong">
                                     <h5 style="border-bottom: 1px solid gray;padding-bottom: 4px;" class="card-title">
